@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-neutral-900 antialiased dark:bg-neutral-950 dark:text-neutral-100;
+}
+
+/* Prose-ish defaults for MDX */
+.prose-mdx {
+  @apply max-w-none;
+}
+
+.prose-mdx h2 {
+  @apply mt-10 text-2xl font-semibold;
+}
+
+.prose-mdx h3 {
+  @apply mt-8 text-xl font-semibold;
+}
+
+.prose-mdx p {
+  @apply mt-4 leading-relaxed;
+}
+
+.prose-mdx a {
+  @apply underline underline-offset-4 hover:no-underline;
+}
+
+.prose-mdx code {
+  @apply rounded bg-neutral-100 px-1.5 py-0.5 text-sm dark:bg-neutral-800;
+}
+
+.prose-mdx pre {
+  @apply mt-4 overflow-x-auto rounded-lg bg-neutral-900 p-4 text-sm text-neutral-100;
+}
+
+.prose-mdx pre code {
+  @apply bg-transparent p-0;
+}
+
+.prose-mdx ul {
+  @apply mt-4 list-disc pl-6;
+}
