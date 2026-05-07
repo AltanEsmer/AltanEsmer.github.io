@@ -1,0 +1,153 @@
+{
+  "generatedAt": "2026-05-07T13:58:30.590Z",
+  "sources": [
+    "AltanEsmer",
+    "AlesSystems"
+  ],
+  "count": 11,
+  "repos": [
+    {
+      "owner": "AltanEsmer",
+      "name": "Web-Technologies",
+      "fullName": "AltanEsmer/Web-Technologies",
+      "description": "Developing Music Library Website (under SDU)",
+      "language": "PHP",
+      "topics": [],
+      "stars": 1,
+      "url": "https://github.com/AltanEsmer/Web-Technologies",
+      "homepageUrl": null,
+      "pushedAt": "2024-12-17T19:25:15Z",
+      "createdAt": "2024-10-23T08:20:20Z"
+    },
+    {
+      "owner": "AltanEsmer",
+      "name": "tutoria-mobile-app",
+      "fullName": "AltanEsmer/tutoria-mobile-app",
+      "description": "Building \"Tutoria,\" a React Native mobile application designed to help children with dyslexia via \"phygital\" (physical + digital) interactions.",
+      "language": "TypeScript",
+      "topics": [],
+      "stars": 0,
+      "url": "https://github.com/AltanEsmer/tutoria-mobile-app",
+      "homepageUrl": null,
+      "pushedAt": "2026-04-30T10:57:13Z",
+      "createdAt": "2026-03-17T09:57:10Z"
+    },
+    {
+      "owner": "AltanEsmer",
+      "name": "CarTuning",
+      "fullName": "AltanEsmer/CarTuning",
+      "description": "Simulations to test variables and components for stage 1 tuning",
+      "language": "Python",
+      "topics": [],
+      "stars": 0,
+      "url": "https://github.com/AltanEsmer/CarTuning",
+      "homepageUrl": null,
+      "pushedAt": "2026-04-07T16:22:07Z",
+      "createdAt": "2025-10-29T08:19:27Z"
+    },
+    {
+      "owner": "AlesSystems",
+      "name": "assault-cube-reversed",
+      "fullName": "AlesSystems/assault-cube-reversed",
+      "description": "Reverse Engineering Guide",
+      "language": "C++",
+      "topics": [],
+      "stars": 0,
+      "url": "https://github.com/AlesSystems/assault-cube-reversed",
+      "homepageUrl": null,
+      "pushedAt": "2026-04-04T12:14:00Z",
+      "createdAt": "2026-04-03T19:24:58Z"
+    },
+    {
+      "owner": "AlesSystems",
+      "name": "gym-progress-app",
+      "fullName": "AlesSystems/gym-progress-app",
+      "description": "Gym progress app for gym rats!!!",
+      "language": "TypeScript",
+      "topics": [],
+      "stars": 0,
+      "url": "https://github.com/AlesSystems/gym-progress-app",
+      "homepageUrl": "https://gymesrius.vercel.app",
+      "pushedAt": "2026-03-03T17:49:00Z",
+      "createdAt": "2026-02-06T12:09:39Z"
+    },
+    {
+      "owner": "AltanEsmer",
+      "name": "To-Do-App",
+      "fullName": "AltanEsmer/To-Do-App",
+      "description": "To Do application",
+      "language": "TypeScript",
+      "topics": [],
+      "stars": 0,
+      "url": "https://github.com/AltanEsmer/To-Do-App",
+      "homepageUrl": null,
+      "pushedAt": "2026-02-08T09:03:44Z",
+      "createdAt": "2023-09-08T19:16:50Z"
+    },
+    {
+      "owner": "AlesSystems",
+      "name": "System-Health-Dashboard",
+      "fullName": "AlesSystems/System-Health-Dashboard",
+      "description": "🎯 Project Goal  Build a real-time desktop application that monitors:  CPU usage  Memory usage  Disk activity  Network activity  System alerts  Historical trends",
+      "language": "C#",
+      "topics": [],
+      "stars": 0,
+      "url": "https://github.com/AlesSystems/System-Health-Dashboard",
+      "homepageUrl": null,
+      "pushedAt": "2026-02-01T14:22:48Z",
+      "createdAt": "2026-01-23T14:36:14Z"
+    },
+    {
+      "owner": "AlesSystems",
+      "name": "Link-Safety-Checker-URL-Security-Analyzer",
+      "fullName": "AlesSystems/Link-Safety-Checker-URL-Security-Analyzer",
+      "description": "A simple URL Safety Checker that analyzes links and detects common security risks. The beginner version checks for suspicious patterns, unsafe structures, redirect behavior, and other basic heuristics. This project is designed for learning URL parsing, security fundamentals, and clean software architecture.",
+      "language": "Python",
+      "topics": [],
+      "stars": 0,
+      "url": "https://github.com/AlesSystems/Link-Safety-Checker-URL-Security-Analyzer",
+      "homepageUrl": null,
+      "pushedAt": "2025-12-15T10:30:35Z",
+      "createdAt": "2025-11-25T12:56:20Z"
+    },
+    {
+      "owner": "AltanEsmer",
+      "name": "KMP-Weather-App",
+      "fullName": "AltanEsmer/KMP-Weather-App",
+      "description": "Simple weather app in Kotlin Multiplatform (KMP) using Room (Android), Koin, and Ktor, while keeping architecture, structure, and quality high.",
+      "language": "Kotlin",
+      "topics": [],
+      "stars": 0,
+      "url": "https://github.com/AltanEsmer/KMP-Weather-App",
+      "homepageUrl": null,
+      "pushedAt": "2025-11-30T12:46:18Z",
+      "createdAt": "2025-11-28T16:16:03Z"
+    },
+    {
+      "owner": "AltanEsmer",
+      "name": "MSD-Project",
+      "fullName": "AltanEsmer/MSD-Project",
+      "description": "MSD course official project repo (SDU)",
+      "language": "Kotlin",
+      "topics": [],
+      "stars": 0,
+      "url": "https://github.com/AltanEsmer/MSD-Project",
+      "homepageUrl": null,
+      "pushedAt": "2025-11-22T16:19:50Z",
+      "createdAt": "2025-10-05T13:22:36Z"
+    },
+    {
+      "owner": "AltanEsmer",
+      "name": "LocationSaverApp",
+      "fullName": "AltanEsmer/LocationSaverApp",
+      "description": "LocationSaverApp. For Uriel Cafe",
+      "language": "Kotlin",
+      "topics": [],
+      "stars": 0,
+      "url": "https://github.com/AltanEsmer/LocationSaverApp",
+      "homepageUrl": null,
+      "pushedAt": "2025-09-12T17:59:42Z",
+      "createdAt": "2025-09-08T09:28:08Z"
+    }
+  ]
+}
