@@ -1,9 +1,23 @@
+@import '@fontsource/space-grotesk/300.css';
+@import '@fontsource/space-grotesk/400.css';
+@import '@fontsource/space-grotesk/500.css';
+@import '@fontsource/space-grotesk/600.css';
+@import '@fontsource/space-grotesk/700.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/700.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  color-scheme: light dark;
+  --color-bg: #0A0E27;
+  --color-surface: #1A1B3A;
+  --color-accent-blue: #3B82F6;
+  --color-accent-purple: #8B5CF6;
+  --color-accent-teal: #14B8A6;
+  --color-highlight: #EC4899;
+  --color-text: #E8EAF6;
 }
 
 html {
@@ -11,42 +25,75 @@ html {
 }
 
 body {
-  @apply bg-white text-neutral-900 antialiased dark:bg-neutral-950 dark:text-neutral-100;
+  background-color: #0A0E27;
+  color: #E8EAF6;
+  font-family: 'Space Grotesk', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Prose-ish defaults for MDX */
+/* Selection */
+::selection {
+  background-color: rgba(59, 130, 246, 0.3);
+  color: #E8EAF6;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0E27;
+}
+::-webkit-scrollbar-thumb {
+  background: #1A1B3A;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3B82F6;
+}
+
+/* Glass card utility */
+@layer components {
+  .glass-card {
+    @apply bg-surface/60 backdrop-blur-md border border-white/10 rounded-2xl;
+  }
+
+  .glow-border {
+    @apply border border-accent-blue/30 hover:border-accent-blue/70 transition-colors duration-300;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent-blue via-accent-purple to-accent-teal bg-clip-text text-transparent;
+  }
+
+  .section-padding {
+    @apply px-6 py-20 md:px-12 lg:px-20;
+  }
+
+  .terminal-text {
+    @apply font-mono text-sm leading-relaxed;
+  }
+}
+
+/* Prose defaults for MDX — kept for /blog and /projects pages */
 .prose-mdx {
   @apply max-w-none;
 }
+.prose-mdx h2 { @apply mt-10 text-2xl font-semibold text-port-text; }
+.prose-mdx h3 { @apply mt-8 text-xl font-semibold text-port-text; }
+.prose-mdx p { @apply mt-4 leading-relaxed text-port-text/80; }
+.prose-mdx a { @apply underline underline-offset-4 hover:no-underline text-accent-blue; }
+.prose-mdx code { @apply rounded bg-surface px-1.5 py-0.5 text-sm font-mono text-accent-teal; }
+.prose-mdx pre { @apply mt-4 overflow-x-auto rounded-lg bg-surface p-4 text-sm; }
+.prose-mdx pre code { @apply bg-transparent p-0; }
+.prose-mdx ul { @apply mt-4 list-disc pl-6; }
 
-.prose-mdx h2 {
-  @apply mt-10 text-2xl font-semibold;
-}
-
-.prose-mdx h3 {
-  @apply mt-8 text-xl font-semibold;
-}
-
-.prose-mdx p {
-  @apply mt-4 leading-relaxed;
-}
-
-.prose-mdx a {
-  @apply underline underline-offset-4 hover:no-underline;
-}
-
-.prose-mdx code {
-  @apply rounded bg-neutral-100 px-1.5 py-0.5 text-sm dark:bg-neutral-800;
-}
-
-.prose-mdx pre {
-  @apply mt-4 overflow-x-auto rounded-lg bg-neutral-900 p-4 text-sm text-neutral-100;
-}
-
-.prose-mdx pre code {
-  @apply bg-transparent p-0;
-}
-
-.prose-mdx ul {
-  @apply mt-4 list-disc pl-6;
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
