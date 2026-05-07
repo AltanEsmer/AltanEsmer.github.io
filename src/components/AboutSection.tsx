@@ -24,7 +24,7 @@ const timelineItems = [
   {
     year: '2018 — 2022',
     title: 'B.Sc. Computer Science',
-    meta: 'SDU · Cyprus',
+    meta: 'SDU · Denmark',
     body: 'Side-quest: organized student hackathons. Thesis on incremental computation.',
   },
 ]
@@ -124,7 +124,7 @@ export default function AboutSection() {
               {'  '}
               <span style={{ color: '#5eead4' }}>based</span>
               {': '}
-              <span style={{ color: '#b6e7d6' }}>{'\'Cyprus / EU\''}</span>
+              <span style={{ color: '#b6e7d6' }}>{'\'Denmark / EU\''}</span>
               {','}
             </div>
             <div>
