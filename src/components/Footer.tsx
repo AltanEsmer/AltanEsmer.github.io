@@ -39,7 +39,7 @@ export default function Footer() {
           </li>
           <li>
             <a
-              href="mailto:contact@altanesmer.dev"
+              href="mailto:esmeraltan@gmail.com"
               className="flex items-center gap-1.5 hover:text-port-text transition-colors text-sm font-mono"
             >
               <Mail size={14} />
@@ -50,7 +50,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <p className="text-port-text/40 text-sm font-mono mt-4">
-          © 2026 Altan Esmer · Crafted with ♥ and TypeScript
+          © 2026 Altan Esmer · Crafted with 🧠 and TypeScript
         </p>
       </div>
     </footer>
