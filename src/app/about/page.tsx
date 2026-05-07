@@ -7,6 +7,7 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
+    <div className="mx-auto max-w-3xl px-6 py-10">
     <MotionSection>
       <h1 className="mb-8 text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100">
         About
@@ -36,5 +37,6 @@ export default function AboutPage() {
         </p>
       </div>
     </MotionSection>
+    </div>
   );
 }

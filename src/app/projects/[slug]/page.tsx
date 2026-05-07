@@ -31,6 +31,7 @@ export default async function ProjectPage({
   );
 
   return (
+    <div className="mx-auto max-w-3xl px-6 py-10">
     <article className="prose-mdx">
       <header className="mb-8">
         <h1 className="text-3xl font-bold text-neutral-900 dark:text-neutral-100">
@@ -58,5 +59,6 @@ export default async function ProjectPage({
       </header>
       <MDXContent />
     </article>
+    </div>
   );
 }
