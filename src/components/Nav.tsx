@@ -1,86 +1,191 @@
 'use client';
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
-const navLinks = [
-  { href: '#hero', label: 'Home' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#skills', label: 'Skills' },
-  { href: '#about', label: 'About' },
-  { href: '#contact', label: 'Contact' },
+const NAV_LINKS = [
+  { href: '#hero', label: '~/home', section: 'hero' },
+  { href: '#projects', label: '~/projects', section: 'projects' },
+  { href: '#about', label: '~/about', section: 'about' },
+  { href: '#skills', label: '~/skills', section: 'skills' },
+  { href: '#contact', label: '~/contact', section: 'contact' },
 ];
 
-const mobileMenuVariants = {
-  hidden: { opacity: 0, y: -8 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.2, ease: 'easeOut' } },
-  exit: { opacity: 0, y: -8, transition: { duration: 0.15, ease: 'easeIn' } },
-};
-
 export default function Nav() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [active, setActive] = useState('hero');
+
+  useEffect(() => {
+    const sections = NAV_LINKS.map((l) => document.getElementById(l.section)).filter(Boolean) as HTMLElement[];
+
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id);
+          }
+        }
+      },
+      { rootMargin: '-40% 0px -55% 0px', threshold: 0 }
+    );
+
+    sections.forEach((s) => observer.observe(s));
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-bg/80 backdrop-blur-md border-b border-white/10">
-      <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Logo */}
-        <a href="#hero" className="flex items-center gap-2">
-          <span className="gradient-text font-bold text-xl">AE</span>
-          <span className="text-port-text/60 text-sm ml-1">Altan Esmer</span>
+    <nav
+      className="fixed top-0 left-0 right-0 z-[9000]"
+      style={{
+        backdropFilter: 'blur(14px) saturate(160%)',
+        WebkitBackdropFilter: 'blur(14px) saturate(160%)',
+        background: 'rgba(10,14,39,0.55)',
+        borderBottom: '1px solid rgba(255,255,255,0.06)',
+      }}
+    >
+      <div
+        style={{
+          maxWidth: '1400px',
+          margin: '0 auto',
+          padding: '14px 32px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          fontFamily: "'JetBrains Mono', ui-monospace, monospace",
+          fontSize: '14px',
+        }}
+      >
+        {/* Brand */}
+        <a
+          href="#hero"
+          data-hot
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '10px',
+            textDecoration: 'none',
+            color: 'var(--text)',
+          }}
+          className="brand-link"
+        >
+          <span
+            className="brand-mark"
+            style={{
+              width: 28,
+              height: 28,
+              borderRadius: 8,
+              background: '#1f2147',
+              border: '1px solid #2f3170',
+              display: 'grid',
+              placeItems: 'center',
+              position: 'relative',
+              overflow: 'hidden',
+              flexShrink: 0,
+            }}
+          >
+            {/* Iridescent shine overlay via ::after would need CSS — using a pseudo approach with inline */}
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" stroke="#E8EAF6" strokeWidth="1.6" />
+              <path
+                d="M7.5 17 L12 6.5 L16.5 17 M9.4 13.4 H14.6"
+                stroke="#E8EAF6"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
+          <span>
+            ales<span style={{ color: 'var(--magenta)' }}>.</span>systems
+          </span>
         </a>
 
-        {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-6">
-          {navLinks.map(({ href, label }) => (
-            <li key={href}>
-              <a
-                href={href}
-                className="text-port-text/60 hover:text-port-text text-sm transition-colors duration-150"
-              >
-                {label}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        {/* Mobile hamburger */}
-        <button
-          className="md:hidden text-port-text/60 hover:text-port-text transition-colors p-1"
-          onClick={() => setMenuOpen((v) => !v)}
-          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+        {/* Nav links */}
+        <div
+          style={{
+            display: 'flex',
+            gap: 4,
+            fontFamily: "'JetBrains Mono', ui-monospace, monospace",
+            fontSize: '13px',
+          }}
         >
-          {menuOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
-      </nav>
-
-      {/* Mobile dropdown */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            key="mobile-menu"
-            variants={mobileMenuVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            className="md:hidden bg-bg/95 backdrop-blur-md border-b border-white/10"
-          >
-            <ul className="flex flex-col px-6 py-4 gap-4">
-              {navLinks.map(({ href, label }) => (
-                <li key={href}>
-                  <a
-                    href={href}
-                    className="text-port-text/60 hover:text-port-text text-sm transition-colors duration-150 font-mono"
-                    onClick={() => setMenuOpen(false)}
+          {NAV_LINKS.map(({ href, label, section }) => {
+            const isActive = active === section;
+            return (
+              <a
+                key={href}
+                href={href}
+                style={{
+                  color: isActive ? 'var(--text)' : 'var(--muted)',
+                  padding: '8px 14px',
+                  borderRadius: 8,
+                  textDecoration: 'none',
+                  background: isActive ? 'rgba(255,255,255,0.04)' : 'transparent',
+                  transition: 'color 0.15s, background 0.15s',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 4,
+                  whiteSpace: 'nowrap',
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(255,255,255,0.04)';
+                  (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text)';
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive) {
+                    (e.currentTarget as HTMLAnchorElement).style.background = 'transparent';
+                    (e.currentTarget as HTMLAnchorElement).style.color = 'var(--muted)';
+                  }
+                }}
+              >
+                {isActive && (
+                  <span style={{ color: 'var(--magenta)', marginRight: 2 }}>▸</span>
+                )}
+                {label}
+                {isActive && (
+                  <span
+                    style={{
+                      color: 'var(--magenta)',
+                      animation: 'blink 1s step-end infinite',
+                      marginLeft: 2,
+                    }}
                   >
-                    {label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </header>
+                    ▍
+                  </span>
+                )}
+              </a>
+            );
+          })}
+        </div>
+
+        {/* CTA */}
+        <a
+          href="#contact"
+          data-hot
+          style={{
+            fontFamily: "'JetBrains Mono', ui-monospace, monospace",
+            fontSize: '12px',
+            color: 'var(--text)',
+            background: 'rgba(236,72,153,0.15)',
+            border: '1px solid rgba(236,72,153,0.4)',
+            padding: '8px 14px',
+            borderRadius: 8,
+            textDecoration: 'none',
+            transition: 'background 0.15s, transform 0.15s',
+            whiteSpace: 'nowrap',
+          }}
+          onMouseEnter={(e) => {
+            (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(236,72,153,0.3)';
+            (e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(-1px)';
+          }}
+          onMouseLeave={(e) => {
+            (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(236,72,153,0.15)';
+            (e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(0)';
+          }}
+        >
+          $ ./hire-me
+        </a>
+      </div>
+    </nav>
   );
 }

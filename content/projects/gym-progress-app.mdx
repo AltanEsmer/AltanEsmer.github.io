@@ -1,0 +1,22 @@
+---
+title: 'gym-progress'
+description: 'A no-fluff progress tracker for gym rats — sets, reps, plate maths, weekly trend.'
+date: '2025-12-09'
+tags: ['typescript', 'react', 'pwa']
+---
+
+The frustration: every other tracker wants me to log mood, sleep, water intake,
+and a feeling-rating after each set. I just want sets, reps, and a chart.
+
+gym-progress is that. Open the PWA, pick the lift, log the set, get a
+volume-adjusted weekly trend. The "plate maths" panel takes a target weight
+and shows the plate breakdown for each side of the bar — useful when the gym
+runs out of 5 kg plates and you have to compose 22.5 kg from a 10, a 5, a 2.5,
+and the bar.
+
+- Built with TypeScript + React + Vite
+- IndexedDB-backed via `idb-keyval`; no account required
+- Installable as a PWA, offline-first
+- Sparkline chart per lift, computed on the fly with no chart library
+
+Source: [github.com/AlesSystems/gym-progress-app](https://github.com/AlesSystems/gym-progress-app).

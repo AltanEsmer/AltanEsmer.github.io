@@ -67,14 +67,14 @@ GitHub Actions (`.github/workflows/deploy.yml`) builds and deploys on every push
 ## When completing tasks:
 
 1. Analyze repository structure
-2. Use relevant skills from .github/skills (if exists)
-3. If have any questions or uncertanity, just ask developer to clarify.
+2. If have any questions or uncertanity, just ask developer to clarify.
+3. Commit changes per by per section, not all in one.
 
 ## After implementation finish:
 
 - Write short summary text in console to inform developer what to expect from that implementation.
 - Provide guidance on how to test the current phase and inform user if manual approach is needed
-- Ensure .github\workflows\ci.yml test will pass as soon as I push to github: Lint check and Type Check.
+- Ensure .github\workflows\ci.yml test will pass as soon as I push to github
 
 ## About Errors:
 - Before implementing, check ERRORS.md for known failure patterns 
@@ -83,5 +83,4 @@ related to project. List any that apply before writing code.
   1. State the root cause in one sentence
   2. Write the generalized rule that prevents this class of error
   3. Append it to ERRORS.md, can be found in each module specifically.
-  4. Check if copilot-instructions.md needs updating.
 - Do not just fix the symptom. Identify: (a) why this happened, (b) where else in the codebase this same assumption might be wrong, (c) what rule would have prevented it.
