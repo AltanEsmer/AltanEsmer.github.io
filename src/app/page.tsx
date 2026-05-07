@@ -14,11 +14,11 @@ export default function HomePage() {
       <div id="projects">
         <ProjectsSection />
       </div>
-      <div id="skills">
-        <SkillsSection />
-      </div>
       <div id="about">
         <AboutSection />
+      </div>
+      <div id="skills">
+        <SkillsSection />
       </div>
       <div id="contact">
         <ContactSection />
