@@ -1,0 +1,26 @@
+---
+title: 'System Health Dashboard'
+description: 'Real-time desktop monitor for CPU, memory, disk, and network with historical trends and alerts.'
+date: '2026-04-12'
+tags: ['c#', 'wpf', '.net', 'observability']
+featured: true
+---
+
+A native Windows desktop application that streams live OS metrics into a single
+calm view. CPU, memory, disk, and network counters are sampled at 1 Hz, plotted
+as ring-buffered sparklines, and rolled into hourly aggregates for the
+historical-trends panel. Alert thresholds fire toast notifications and append
+to an in-app log.
+
+The point was to fit on one screen without ever hiding signal: no tabs, no
+hamburger menu, every chart visible at once. Counters that exceed their
+threshold pulse magenta until acknowledged.
+
+## Stack
+
+- **C# / .NET 8** — windows performance counters via `System.Diagnostics`
+- **WPF + MVVM** — observable view-models bound to chart controls
+- **LiveCharts2** for the sparklines
+- **JSON-flat-file** rolling log; no database needed for a single-machine tool
+
+The repo is open at [github.com/AlesSystems/System-Health-Dashboard](https://github.com/AlesSystems/System-Health-Dashboard).

@@ -1,0 +1,25 @@
+---
+title: 'Tutoria — phygital learning for children with dyslexia'
+description: 'A React Native app that pairs printed manipulatives with a guided digital coach, helping children with dyslexia practice phonics in a way that respects their attention and energy.'
+date: '2026-03-04'
+tags: ['react-native', 'typescript', 'a11y', 'mobile']
+featured: true
+---
+
+Tutoria treats reading practice as a physical-digital loop: a child arranges
+printed letter cards in front of the device, and the app uses the camera and a
+small on-device model to confirm what they spelled, then narrates the next
+prompt with a calm, slow voice.
+
+Designing for children with dyslexia changed how I think about UX in general.
+A few rules that the app keeps strictly:
+
+- **Single primary action per screen.** No icons-only nav, no long lists.
+- **OpenDyslexic font** as the default, but the user can switch to a familiar font.
+- **No streaks, no shame.** Sessions end on a positive note regardless of accuracy.
+- **Audio first.** Every text prompt is also voiced.
+
+Built with React Native + TypeScript, Expo for the build pipeline, and a tiny
+on-device Tesseract wrapper for letter-card recognition.
+
+Source: [github.com/AltanEsmer/tutoria-mobile-app](https://github.com/AltanEsmer/tutoria-mobile-app).

@@ -1,0 +1,28 @@
+---
+title: 'KMP Weather'
+description: 'A small Kotlin Multiplatform weather app — Room, Koin, Ktor — sharing 90% of the code between Android and iOS.'
+date: '2026-02-18'
+tags: ['kotlin', 'kmp', 'android', 'ios', 'compose']
+---
+
+A deliberate small project to learn KMP without hand-waving the hard parts:
+shared business logic, separate UI per platform, and a clean dependency-graph
+that doesn't leak Android types into the common module.
+
+```
+weather/
+├─ shared/             # KMP module — business logic + DTOs + Ktor client
+│  ├─ data/            # Room (Android) and SQLDelight (iOS) splits via expect/actual
+│  ├─ domain/          # use-cases, fully shared
+│  └─ network/         # Ktor + kotlinx.serialization
+├─ androidApp/         # Jetpack Compose
+└─ iosApp/             # SwiftUI (consumes the shared framework)
+```
+
+The interesting bits:
+
+- **Koin in commonMain** — wired via a small `initKoin()` shared from both apps
+- **Stateflow for reactive views** — same source of truth on both platforms
+- **OpenWeather API** with a 10-minute cache to be a polite citizen
+
+Source: [github.com/AltanEsmer/KMP-Weather-App](https://github.com/AltanEsmer/KMP-Weather-App).

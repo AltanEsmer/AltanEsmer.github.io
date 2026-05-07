@@ -1,0 +1,23 @@
+---
+title: 'Link Safety Checker'
+description: 'A URL safety analyzer that flags suspicious links via pattern matching, redirect tracing, and structural heuristics.'
+date: '2026-01-22'
+tags: ['python', 'security', 'url-analysis', 'cli']
+---
+
+A small Python tool that takes a URL and returns a risk score plus a list of
+reasons. Designed as a teaching project for URL parsing and basic web-security
+fundamentals — no ML, no third-party reputation feeds, just heuristics that
+explain themselves.
+
+What it checks:
+
+- **Suspicious patterns** — IDN homograph attacks, excessive subdomains, IP-as-host
+- **Structural anomalies** — `data:` and `javascript:` schemes, embedded credentials
+- **Redirect chain** — follows up to N hops, flags chains that change TLD
+- **Heuristic signals** — punycode, percent-encoded ASCII letters, very recent TLDs
+
+The output is human-readable and the signal weights live in a single
+`heuristics.py` so contributors can tune them without touching the CLI.
+
+Source: [github.com/AlesSystems/Link-Safety-Checker-URL-Security-Analyzer](https://github.com/AlesSystems/Link-Safety-Checker-URL-Security-Analyzer).
