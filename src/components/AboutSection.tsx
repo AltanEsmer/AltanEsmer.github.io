@@ -1,291 +1,318 @@
 'use client'
 
-import { useRef } from 'react'
-import {
-  motion,
-  useReducedMotion,
-  useScroll,
-  useTransform,
-} from 'framer-motion'
+import { useEffect, useRef } from 'react'
 
-const timeline = [
+const timelineItems = [
   {
-    year: '2026',
-    title: 'Senior Engineer',
-    org: 'Building the Future',
-    desc: 'Leading frontend architecture for high-traffic products.',
-    color: 'accent-blue',
+    year: '2025 — now',
+    title: 'Founder · AlesSystems',
+    meta: 'independent · solo founder',
+    body: 'Building developer tooling I want to use. Currently shipping ales-trading and other internal tools.',
   },
   {
-    year: '2024',
-    title: 'Full Stack Engineer',
-    org: 'Tech Startup',
-    desc: 'Built a real-time collaboration platform from the ground up.',
-    color: 'accent-purple',
+    year: '2023 — 2025',
+    title: 'Software Engineer · Various',
+    meta: 'freelance + contract',
+    body: 'End-to-end product work — TypeScript / Python / Postgres. Reduced p99 by 6× on a high-throughput data pipeline.',
   },
   {
-    year: '2022',
-    title: 'Frontend Developer',
-    org: 'Digital Agency',
-    desc: 'Delivered 20+ client projects with a focus on performance.',
-    color: 'accent-teal',
+    year: '2020 — 2023',
+    title: 'Full-stack Engineer',
+    meta: 'early-stage SaaS',
+    body: 'Built the onboarding flow, billing rewrite, and public API. Wrote the design system the team still uses.',
   },
   {
-    year: '2021',
+    year: '2018 — 2022',
     title: 'B.Sc. Computer Science',
-    org: 'University',
-    desc: 'Graduated with honors, specializing in distributed systems.',
-    color: 'highlight',
-  },
-  {
-    year: '2019',
-    title: 'First Line of Code',
-    org: 'Self-taught',
-    desc: 'Started learning to code. Never looked back.',
-    color: 'accent-blue',
+    meta: 'SDU · Cyprus',
+    body: 'Side-quest: organized student hackathons. Thesis on incremental computation.',
   },
 ]
 
-const colorMap: Record<string, string> = {
-  'accent-blue': '#3B82F6',
-  'accent-purple': '#8B5CF6',
-  'accent-teal': '#14B8A6',
-  highlight: '#EC4899',
-}
-
-const colorClassMap: Record<string, string> = {
-  'accent-blue': 'text-accent-blue',
-  'accent-purple': 'text-accent-purple',
-  'accent-teal': 'text-accent-teal',
-  highlight: 'text-highlight',
-}
-
-// Parallax offsets per timeline item index
-const parallaxRanges: [number, number][] = [
-  [0, -30],
-  [0, -20],
-  [0, -10],
-  [0, -5],
-  [0, 0],
-]
-
-function JsonBio({ reduced }: { reduced: boolean }) {
-  return (
-    <motion.div
-      initial={reduced ? { x: 0, opacity: 1 } : { x: -40, opacity: 0 }}
-      whileInView={{ x: 0, opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      className="glass-card overflow-hidden h-full"
-    >
-      {/* Window chrome */}
-      <div className="flex items-center gap-2 px-4 py-3 border-b border-white/10 bg-surface/80">
-        <span className="w-3 h-3 rounded-full bg-highlight" />
-        <span className="w-3 h-3 rounded-full bg-amber-400" />
-        <span className="w-3 h-3 rounded-full bg-accent-teal" />
-        <span className="ml-4 text-xs font-mono text-port-text/50 select-none">
-          bio.json
-        </span>
-      </div>
-
-      {/* JSON body */}
-      <div className="bg-black/50 p-5 overflow-auto">
-        <pre className="font-mono text-sm leading-relaxed">
-          <code>
-            <span className="text-port-text/50">{'{'}</span>
-            {'\n'}
-
-            {'  '}
-            <span className="text-accent-teal">&quot;name&quot;</span>
-            <span className="text-port-text/60">{': '}</span>
-            <span className="text-accent-blue">&quot;Altan Esmer&quot;</span>
-            <span className="text-port-text/60">{','}</span>
-            {'\n'}
-
-            {'  '}
-            <span className="text-accent-teal">&quot;role&quot;</span>
-            <span className="text-port-text/60">{': '}</span>
-            <span className="text-accent-blue">&quot;Software Engineer&quot;</span>
-            <span className="text-port-text/60">{','}</span>
-            {'\n'}
-
-            {'  '}
-            <span className="text-accent-teal">&quot;location&quot;</span>
-            <span className="text-port-text/60">{': '}</span>
-            <span className="text-accent-blue">&quot;Istanbul, Turkey&quot;</span>
-            <span className="text-port-text/60">{','}</span>
-            {'\n'}
-
-            {'  '}
-            <span className="text-accent-teal">&quot;experience_years&quot;</span>
-            <span className="text-port-text/60">{': '}</span>
-            <span className="text-accent-purple">5</span>
-            <span className="text-port-text/60">{','}</span>
-            {'\n'}
-
-            {'  '}
-            <span className="text-accent-teal">&quot;focus&quot;</span>
-            <span className="text-port-text/60">{': '}</span>
-            <span className="text-port-text/50">{'['}</span>
-            {'\n'}
-
-            {'    '}
-            <span className="text-accent-blue">&quot;Web Performance&quot;</span>
-            <span className="text-port-text/60">{','}</span>
-            {'\n'}
-
-            {'    '}
-            <span className="text-accent-blue">&quot;Creative Coding&quot;</span>
-            <span className="text-port-text/60">{','}</span>
-            {'\n'}
-
-            {'    '}
-            <span className="text-accent-blue">&quot;Systems Design&quot;</span>
-            {'\n'}
-
-            {'  '}
-            <span className="text-port-text/50">{']'}</span>
-            <span className="text-port-text/60">{','}</span>
-            {'\n'}
-
-            {'  '}
-            <span className="text-accent-teal">&quot;currently_building&quot;</span>
-            <span className="text-port-text/60">{': '}</span>
-            <span className="text-accent-blue">
-              &quot;Next-gen portfolio experiences&quot;
-            </span>
-            <span className="text-port-text/60">{','}</span>
-            {'\n'}
-
-            {'  '}
-            <span className="text-accent-teal">&quot;open_to&quot;</span>
-            <span className="text-port-text/60">{': '}</span>
-            <span className="text-accent-blue">&quot;Exciting opportunities&quot;</span>
-            <span className="text-port-text/60">{','}</span>
-            {'\n'}
-
-            {'  '}
-            <span className="text-accent-teal">&quot;coffee_per_day&quot;</span>
-            <span className="text-port-text/60">{': '}</span>
-            <span className="text-accent-purple">3</span>
-            {'\n'}
-
-            <span className="text-port-text/50">{'}'}</span>
-          </code>
-        </pre>
-      </div>
-    </motion.div>
-  )
-}
-
-function TimelineItem({
-  item,
-  index,
-  scrollYProgress,
-  reduced,
-}: {
-  item: (typeof timeline)[number]
-  index: number
-  scrollYProgress: ReturnType<typeof useScroll>['scrollYProgress']
-  reduced: boolean
-}) {
-  const range = parallaxRanges[index] ?? [0, 0]
-  const y = useTransform(scrollYProgress, [0, 1], range)
-
-  return (
-    <motion.div
-      style={{ y: reduced ? 0 : y }}
-      initial={reduced ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.08 }}
-      className="flex gap-4"
-    >
-      {/* Left: year + line */}
-      <div className="flex flex-col items-center gap-0 flex-shrink-0 w-14">
-        <span className="font-mono text-xs text-port-text/50 leading-tight pt-0.5">
-          {item.year}
-        </span>
-        {index < timeline.length - 1 && (
-          <div
-            className="mt-2 w-px flex-1 min-h-[2.5rem]"
-            style={{
-              background: `linear-gradient(to bottom, ${colorMap[item.color]}, transparent)`,
-            }}
-          />
-        )}
-      </div>
-
-      {/* Dot connector */}
-      <div className="flex flex-col items-center flex-shrink-0 pt-1">
-        <span
-          className="w-2.5 h-2.5 rounded-full flex-shrink-0 shadow-md"
-          style={{ backgroundColor: colorMap[item.color] }}
-        />
-      </div>
-
-      {/* Right: content */}
-      <div className="pb-8">
-        <p className="font-semibold text-port-text leading-tight">{item.title}</p>
-        <p className={`text-sm mt-0.5 ${colorClassMap[item.color]}`}>
-          {item.org}
-        </p>
-        <p className="text-port-text/70 text-sm mt-1">{item.desc}</p>
-      </div>
-    </motion.div>
-  )
+function useReveal(ref: React.RefObject<Element | null>) {
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in')
+          }
+        })
+      },
+      { threshold: 0.12 }
+    )
+    const targets = el.querySelectorAll('.reveal')
+    targets.forEach((t) => observer.observe(t))
+    // Also observe the element itself if it has .reveal
+    if (el.classList.contains('reveal')) observer.observe(el)
+    return () => observer.disconnect()
+  }, [ref])
 }
 
 export default function AboutSection() {
-  const reduced = useReducedMotion() ?? false
   const sectionRef = useRef<HTMLElement>(null)
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'end start'],
-  })
+  useReveal(sectionRef)
 
   return (
-    <section
-      ref={sectionRef}
-      className="w-full py-20 px-6 md:px-12 lg:px-20"
-    >
-      <div className="max-w-7xl mx-auto">
+    <section id="about" ref={sectionRef} style={{ padding: '100px 0' }}>
+      <div className="wrap">
         {/* Section header */}
-        <motion.div
-          initial={reduced ? { opacity: 1, y: 0 } : { opacity: 0, y: -16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-12 text-center lg:text-left"
-        >
-          <h2 className="gradient-text text-4xl font-bold mb-3">About</h2>
-          <p className="text-port-text/70 text-lg">The person behind the code</p>
-        </motion.div>
+        <div className="section-head reveal">
+          <span className="num">03 //</span>
+          <span>cat ./about.json</span>
+          <span className="line" />
+        </div>
 
-        {/* Two-column layout */}
-        <div className="flex flex-col lg:flex-row gap-10 items-start">
-          {/* LEFT — JSON bio */}
-          <div className="w-full lg:w-1/2">
-            <JsonBio reduced={reduced} />
+        {/* Two-column grid */}
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1.1fr 1fr',
+            gap: '48px',
+          }}
+          className="about-grid-responsive"
+        >
+          {/* LEFT — code-bio */}
+          <div
+            className="code-bio reveal"
+            style={{
+              background: 'rgba(13,18,48,.7)',
+              border: '1px solid var(--line)',
+              borderRadius: '14px',
+              padding: '22px 26px',
+              fontFamily: "'JetBrains Mono', ui-monospace, monospace",
+              fontSize: '13.5px',
+              lineHeight: '1.85',
+              overflow: 'hidden',
+              position: 'relative',
+              whiteSpace: 'pre',
+            }}
+          >
+            <div>
+              <span style={{ color: 'var(--dim)', marginRight: '16px', userSelect: 'none', display: 'inline-block', width: '18px', textAlign: 'right' }}>1</span>
+              <span style={{ color: 'var(--dim)', fontStyle: 'italic' }}>{'// who am i, in JSON'}</span>
+            </div>
+            <div>
+              <span style={{ color: 'var(--dim)', marginRight: '16px', userSelect: 'none', display: 'inline-block', width: '18px', textAlign: 'right' }}>2</span>
+              <span style={{ color: 'var(--violet)' }}>const</span>
+              {' '}
+              <span style={{ color: '#93c5fd' }}>altan</span>
+              {' '}
+              <span style={{ color: 'var(--magenta)' }}>=</span>
+              {' {'}
+            </div>
+            <div>
+              <span style={{ color: 'var(--dim)', marginRight: '16px', userSelect: 'none', display: 'inline-block', width: '18px', textAlign: 'right' }}>3</span>
+              {'  '}
+              <span style={{ color: '#5eead4' }}>name</span>
+              {': '}
+              <span style={{ color: '#b6e7d6' }}>{'\'Altan Esmer\''}</span>
+              {','}
+            </div>
+            <div>
+              <span style={{ color: 'var(--dim)', marginRight: '16px', userSelect: 'none', display: 'inline-block', width: '18px', textAlign: 'right' }}>4</span>
+              {'  '}
+              <span style={{ color: '#5eead4' }}>role</span>
+              {': '}
+              <span style={{ color: '#b6e7d6' }}>{'\'full-stack engineer\''}</span>
+              {','}
+            </div>
+            <div>
+              <span style={{ color: 'var(--dim)', marginRight: '16px', userSelect: 'none', display: 'inline-block', width: '18px', textAlign: 'right' }}>5</span>
+              {'  '}
+              <span style={{ color: '#5eead4' }}>based</span>
+              {': '}
+              <span style={{ color: '#b6e7d6' }}>{'\'Cyprus / EU\''}</span>
+              {','}
+            </div>
+            <div>
+              <span style={{ color: 'var(--dim)', marginRight: '16px', userSelect: 'none', display: 'inline-block', width: '18px', textAlign: 'right' }}>6</span>
+              {'  '}
+              <span style={{ color: '#5eead4' }}>stack</span>
+              {': ['}
+              <span style={{ color: '#b6e7d6' }}>{'\'TypeScript\''}</span>
+              {', '}
+              <span style={{ color: '#b6e7d6' }}>{'\'React\''}</span>
+              {', '}
+              <span style={{ color: '#b6e7d6' }}>{'\'Node\''}</span>
+              {', '}
+              <span style={{ color: '#b6e7d6' }}>{'\'Python\''}</span>
+              {'],'}
+            </div>
+            <div>
+              <span style={{ color: 'var(--dim)', marginRight: '16px', userSelect: 'none', display: 'inline-block', width: '18px', textAlign: 'right' }}>7</span>
+              {'  '}
+              <span style={{ color: '#5eead4' }}>currently</span>
+              {': '}
+              <span style={{ color: '#b6e7d6' }}>{'\'building AlesSystems\''}</span>
+              {','}
+            </div>
+            <div>
+              <span style={{ color: 'var(--dim)', marginRight: '16px', userSelect: 'none', display: 'inline-block', width: '18px', textAlign: 'right' }}>8</span>
+              {'  '}
+              <span style={{ color: '#5eead4' }}>obsessions</span>
+              {': ['}
+            </div>
+            <div>
+              <span style={{ color: 'var(--dim)', marginRight: '16px', userSelect: 'none', display: 'inline-block', width: '18px', textAlign: 'right' }}>9</span>
+              {'    '}
+              <span style={{ color: '#b6e7d6' }}>{'\'developer tooling\''}</span>
+              {','}
+            </div>
+            <div>
+              <span style={{ color: 'var(--dim)', marginRight: '16px', userSelect: 'none', display: 'inline-block', width: '18px', textAlign: 'right' }}>10</span>
+              {'    '}
+              <span style={{ color: '#b6e7d6' }}>{'\'fast feedback loops\''}</span>
+              {','}
+            </div>
+            <div>
+              <span style={{ color: 'var(--dim)', marginRight: '16px', userSelect: 'none', display: 'inline-block', width: '18px', textAlign: 'right' }}>11</span>
+              {'    '}
+              <span style={{ color: '#b6e7d6' }}>{'\'API ergonomics\''}</span>
+              {','}
+            </div>
+            <div>
+              <span style={{ color: 'var(--dim)', marginRight: '16px', userSelect: 'none', display: 'inline-block', width: '18px', textAlign: 'right' }}>12</span>
+              {'  ],'}
+            </div>
+            <div>
+              <span style={{ color: 'var(--dim)', marginRight: '16px', userSelect: 'none', display: 'inline-block', width: '18px', textAlign: 'right' }}>13</span>
+              {'  '}
+              <span style={{ color: '#5eead4' }}>years</span>
+              {': '}
+              <span style={{ color: 'var(--amber)' }}>6</span>
+              {','}
+            </div>
+            <div>
+              <span style={{ color: 'var(--dim)', marginRight: '16px', userSelect: 'none', display: 'inline-block', width: '18px', textAlign: 'right' }}>14</span>
+              {'  '}
+              <span style={{ color: '#5eead4' }}>ships</span>
+              {': '}
+              <span style={{ color: 'var(--violet)' }}>true</span>
+              {', '}
+              <span style={{ color: 'var(--dim)', fontStyle: 'italic' }}>{'// always'}</span>
+            </div>
+            <div>
+              <span style={{ color: 'var(--dim)', marginRight: '16px', userSelect: 'none', display: 'inline-block', width: '18px', textAlign: 'right' }}>15</span>
+              {'  '}
+              <span style={{ color: '#5eead4' }}>talks</span>
+              {': '}
+              <span style={{ color: '#93c5fd' }}>async</span>
+              {' () '}
+              <span style={{ color: 'var(--magenta)' }}>{'=>'}</span>
+              {' '}
+              <span style={{ color: 'var(--violet)' }}>await</span>
+              {' '}
+              <span style={{ color: '#5eead4' }}>coffee</span>
+              {'(),'}
+            </div>
+            <div>
+              <span style={{ color: 'var(--dim)', marginRight: '16px', userSelect: 'none', display: 'inline-block', width: '18px', textAlign: 'right' }}>16</span>
+              {'};'}
+            </div>
+            <div>
+              <span style={{ color: 'var(--dim)', marginRight: '16px', userSelect: 'none', display: 'inline-block', width: '18px', textAlign: 'right' }}>17</span>
+            </div>
+            <div>
+              <span style={{ color: 'var(--dim)', marginRight: '16px', userSelect: 'none', display: 'inline-block', width: '18px', textAlign: 'right' }}>18</span>
+              <span style={{ color: 'var(--violet)' }}>export default</span>
+              {' '}
+              <span style={{ color: '#93c5fd' }}>altan</span>
+              <span style={{ color: 'var(--magenta)' }}>;</span>
+            </div>
           </div>
 
-          {/* RIGHT — Timeline */}
-          <div className="w-full lg:w-1/2">
-            <div className="flex flex-col">
-              {timeline.map((item, index) => (
-                <TimelineItem
-                  key={item.year + item.title}
-                  item={item}
-                  index={index}
-                  scrollYProgress={scrollYProgress}
-                  reduced={reduced}
-                />
+          {/* RIGHT — timeline */}
+          <div className="reveal">
+            <div style={{ position: 'relative', paddingLeft: '28px' }}>
+              {/* Vertical rail */}
+              <div
+                style={{
+                  position: 'absolute',
+                  left: '8px',
+                  top: '8px',
+                  bottom: 0,
+                  width: '1px',
+                  background:
+                    'linear-gradient(180deg, var(--violet), var(--blue), var(--teal), transparent)',
+                }}
+              />
+
+              {timelineItems.map((item, i) => (
+                <div key={i} style={{ position: 'relative', paddingBottom: '28px' }}>
+                  {/* Dot */}
+                  <div
+                    style={{
+                      position: 'absolute',
+                      left: '-20px',
+                      top: '6px',
+                      width: '14px',
+                      height: '14px',
+                      borderRadius: '999px',
+                      background: 'var(--bg)',
+                      border: '2px solid var(--violet)',
+                      boxShadow: '0 0 12px rgba(139,92,246,.6)',
+                    }}
+                  />
+                  <div
+                    style={{
+                      fontFamily: "'JetBrains Mono', ui-monospace, monospace",
+                      fontSize: '12px',
+                      color: 'var(--magenta)',
+                      marginBottom: '4px',
+                    }}
+                  >
+                    {item.year}
+                  </div>
+                  <h4
+                    className="display"
+                    style={{
+                      fontWeight: 600,
+                      fontSize: '18px',
+                      letterSpacing: '-0.01em',
+                      margin: '0 0 4px',
+                      color: 'var(--text)',
+                    }}
+                  >
+                    {item.title}
+                  </h4>
+                  <div
+                    style={{
+                      fontFamily: "'JetBrains Mono', ui-monospace, monospace",
+                      fontSize: '11px',
+                      color: 'var(--dim)',
+                      marginBottom: '6px',
+                    }}
+                  >
+                    {item.meta}
+                  </div>
+                  <p
+                    style={{
+                      color: 'var(--muted)',
+                      fontSize: '13.5px',
+                      lineHeight: '1.6',
+                      margin: 0,
+                    }}
+                  >
+                    {item.body}
+                  </p>
+                </div>
               ))}
             </div>
           </div>
         </div>
       </div>
+
+      {/* Responsive: single column on narrow viewports */}
+      <style>{`
+        @media (max-width: 1000px) {
+          .about-grid-responsive {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     </section>
   )
 }
