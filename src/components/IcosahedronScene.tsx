@@ -67,8 +67,9 @@ function Icosahedron() {
 export default function IcosahedronScene() {
   return (
     <Canvas
-      style={{ height: '100%', width: '100%' }}
-      gl={{ alpha: true }}
+      style={{ display: 'block', width: '100%', height: '100%', position: 'absolute', inset: 0 }}
+      gl={{ alpha: true, antialias: true }}
+      dpr={[1, 2]}
       camera={{ position: [0, 0, 5] }}
     >
       <ambientLight intensity={0.3} />
