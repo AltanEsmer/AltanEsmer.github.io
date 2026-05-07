@@ -421,6 +421,11 @@ body::before {
   position: relative;
   z-index: 2;
 }
+@media (max-width: 640px) {
+  .wrap {
+    padding: 0 16px;
+  }
+}
 
 /* Section header strip — `<num>02 //</num> name <line/>` */
 .section-head {
