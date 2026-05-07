@@ -1,5 +1,5 @@
 import MotionSection from '@/components/MotionSection';
-import ProjectCard from '@/components/ProjectCard';
+import ContentProjectCard from '@/components/ContentProjectCard';
 import { getAllContent } from '@/lib/content';
 
 export const metadata = {
@@ -19,7 +19,7 @@ export default function ProjectsPage() {
       {projects.length > 0 ? (
         <div className="flex flex-col gap-4">
           {projects.map((item) => (
-            <ProjectCard
+            <ContentProjectCard
               key={item.slug}
               slug={item.slug}
               frontmatter={item.frontmatter}
