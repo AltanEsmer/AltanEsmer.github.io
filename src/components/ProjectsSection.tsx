@@ -48,6 +48,22 @@ export default function ProjectsSection() {
             grid-row: span 1 !important;
           }
         }
+        @media (max-width: 640px) {
+          #projects { padding: 60px 0 !important; }
+          #projects .bento {
+            grid-template-columns: repeat(2, 1fr) !important;
+            grid-auto-rows: 180px !important;
+            gap: 14px !important;
+          }
+          #projects .c-2x2, #projects .c-2x1, #projects .c-1x1, #projects .c-1x2 {
+            grid-column: span 2 !important;
+          }
+          #projects .projects-head {
+            flex-direction: column !important;
+            align-items: stretch !important;
+            margin-bottom: 28px !important;
+          }
+        }
       `}</style>
 
       <section

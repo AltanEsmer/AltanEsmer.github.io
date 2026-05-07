@@ -85,7 +85,8 @@ export default function AboutSection() {
               fontFamily: "'JetBrains Mono', ui-monospace, monospace",
               fontSize: '13.5px',
               lineHeight: '1.85',
-              overflow: 'hidden',
+              overflowX: 'auto',
+              overflowY: 'hidden',
               position: 'relative',
               whiteSpace: 'pre',
             }}
@@ -310,6 +311,13 @@ export default function AboutSection() {
         @media (max-width: 1000px) {
           .about-grid-responsive {
             grid-template-columns: 1fr !important;
+          }
+        }
+        @media (max-width: 640px) {
+          #about { padding: 60px 0 !important; }
+          #about .code-bio {
+            padding: 16px 14px !important;
+            font-size: 12px !important;
           }
         }
       `}</style>

@@ -350,6 +350,7 @@ export default function HeroSection() {
 
           {/* .three-stage */}
           <motion.div
+            className="three-stage"
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.35, duration: 0.8, ease: [0.2, 0.7, 0.2, 1] }}
@@ -423,6 +424,21 @@ export default function HeroSection() {
         @media (max-width: 1000px) {
           #hero .wrap {
             grid-template-columns: 1fr !important;
+          }
+          #hero .three-stage {
+            margin-left: 0 !important;
+          }
+        }
+        @media (max-width: 640px) {
+          #hero {
+            padding: 96px 0 60px !important;
+            min-height: auto !important;
+          }
+          #hero h1 {
+            font-size: clamp(2.4rem, 11vw, 3.6rem) !important;
+          }
+          #hero .three-stage {
+            max-width: 100% !important;
           }
         }
       `}</style>

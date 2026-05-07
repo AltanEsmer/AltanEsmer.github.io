@@ -209,7 +209,7 @@ export default function ContactSection() {
               <span style={{ color: 'var(--magenta)' }}>&gt;</span>
               <span
                 className="lbl"
-                style={{ color: 'var(--violet)', minWidth: 100 }}
+                style={{ color: 'var(--violet)', minWidth: 72 }}
               >
                 name
               </span>
@@ -256,7 +256,7 @@ export default function ContactSection() {
               <span style={{ color: 'var(--magenta)' }}>&gt;</span>
               <span
                 className="lbl"
-                style={{ color: 'var(--violet)', minWidth: 100 }}
+                style={{ color: 'var(--violet)', minWidth: 72 }}
               >
                 email
               </span>
@@ -294,7 +294,7 @@ export default function ContactSection() {
               <span style={{ color: 'var(--magenta)' }}>&gt;</span>
               <span
                 className="lbl"
-                style={{ color: 'var(--violet)', minWidth: 100 }}
+                style={{ color: 'var(--violet)', minWidth: 72 }}
               >
                 budget
               </span>
@@ -428,6 +428,12 @@ export default function ContactSection() {
           </form>
         </div>
       </div>
+      <style>{`
+        @media (max-width: 640px) {
+          #contact { padding: 60px 0 !important; }
+          #contact .contact-wrap { padding: 0 16px !important; }
+        }
+      `}</style>
     </section>
   );
 }

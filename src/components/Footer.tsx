@@ -167,6 +167,10 @@ export default function Footer() {
             grid-template-columns: 1fr !important;
           }
         }
+        @media (max-width: 640px) {
+          footer { padding: 40px 0 24px !important; }
+          .ascii { font-size: 8px !important; overflow-x: auto; }
+        }
       `}</style>
     </footer>
   );

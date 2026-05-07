@@ -12,6 +12,8 @@ const NAV_LINKS = [
 
 export default function Nav() {
   const [active, setActive] = useState('hero');
+  const [isMobile, setIsMobile] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const sections = NAV_LINKS.map((l) => document.getElementById(l.section)).filter(Boolean) as HTMLElement[];
@@ -33,6 +35,17 @@ export default function Nav() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)');
+    const update = () => {
+      setIsMobile(mq.matches);
+      if (!mq.matches) setOpen(false);
+    };
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
+
   return (
     <nav
       className="fixed top-0 left-0 right-0 z-[9000]"
@@ -44,6 +57,7 @@ export default function Nav() {
       }}
     >
       <div
+        className="nav-row"
         style={{
           maxWidth: '1400px',
           margin: '0 auto',
@@ -67,6 +81,7 @@ export default function Nav() {
             color: 'var(--text)',
           }}
           className="brand-link"
+          onClick={() => setOpen(false)}
         >
           <span
             className="brand-mark"
@@ -83,7 +98,6 @@ export default function Nav() {
               flexShrink: 0,
             }}
           >
-            {/* Iridescent shine overlay via ::after would need CSS — using a pseudo approach with inline */}
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
               <circle cx="12" cy="12" r="10" stroke="#E8EAF6" strokeWidth="1.6" />
               <path
@@ -100,13 +114,165 @@ export default function Nav() {
           </span>
         </a>
 
-        {/* Nav links */}
+        {/* Desktop nav links */}
+        {!isMobile && (
+          <div
+            style={{
+              display: 'flex',
+              gap: 4,
+              fontFamily: "'JetBrains Mono', ui-monospace, monospace",
+              fontSize: '13px',
+            }}
+          >
+            {NAV_LINKS.map(({ href, label, section }) => {
+              const isActive = active === section;
+              return (
+                <a
+                  key={href}
+                  href={href}
+                  style={{
+                    color: isActive ? 'var(--text)' : 'var(--muted)',
+                    padding: '8px 14px',
+                    borderRadius: 8,
+                    textDecoration: 'none',
+                    background: isActive ? 'rgba(255,255,255,0.04)' : 'transparent',
+                    transition: 'color 0.15s, background 0.15s',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 4,
+                    whiteSpace: 'nowrap',
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(255,255,255,0.04)';
+                    (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text)';
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isActive) {
+                      (e.currentTarget as HTMLAnchorElement).style.background = 'transparent';
+                      (e.currentTarget as HTMLAnchorElement).style.color = 'var(--muted)';
+                    }
+                  }}
+                >
+                  {isActive && (
+                    <span style={{ color: 'var(--magenta)', marginRight: 2 }}>▸</span>
+                  )}
+                  {label}
+                  {isActive && (
+                    <span
+                      style={{
+                        color: 'var(--magenta)',
+                        animation: 'blink 1s step-end infinite',
+                        marginLeft: 2,
+                      }}
+                    >
+                      ▍
+                    </span>
+                  )}
+                </a>
+              );
+            })}
+          </div>
+        )}
+
+        {/* Desktop CTA */}
+        {!isMobile && (
+          <a
+            href="#contact"
+            data-hot
+            style={{
+              fontFamily: "'JetBrains Mono', ui-monospace, monospace",
+              fontSize: '12px',
+              color: 'var(--text)',
+              background: 'rgba(236,72,153,0.15)',
+              border: '1px solid rgba(236,72,153,0.4)',
+              padding: '8px 14px',
+              borderRadius: 8,
+              textDecoration: 'none',
+              transition: 'background 0.15s, transform 0.15s',
+              whiteSpace: 'nowrap',
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(236,72,153,0.3)';
+              (e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(-1px)';
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(236,72,153,0.15)';
+              (e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(0)';
+            }}
+          >
+            $ ./hire-me
+          </a>
+        )}
+
+        {/* Mobile hamburger */}
+        {isMobile && (
+          <button
+            type="button"
+            aria-label="Toggle menu"
+            aria-expanded={open}
+            aria-controls="mobile-nav-panel"
+            onClick={() => setOpen((v) => !v)}
+            style={{
+              width: 40,
+              height: 40,
+              display: 'inline-flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 5,
+              padding: 0,
+              borderRadius: 8,
+              background: open ? 'rgba(255,255,255,0.05)' : 'transparent',
+              border: '1px solid var(--line)',
+              cursor: 'pointer',
+            }}
+          >
+            <span
+              style={{
+                width: 18,
+                height: 2,
+                background: 'var(--text)',
+                borderRadius: 2,
+                transition: 'transform 0.18s, opacity 0.18s',
+                transform: open ? 'translateY(7px) rotate(45deg)' : 'none',
+              }}
+            />
+            <span
+              style={{
+                width: 18,
+                height: 2,
+                background: 'var(--text)',
+                borderRadius: 2,
+                transition: 'opacity 0.18s',
+                opacity: open ? 0 : 1,
+              }}
+            />
+            <span
+              style={{
+                width: 18,
+                height: 2,
+                background: 'var(--text)',
+                borderRadius: 2,
+                transition: 'transform 0.18s',
+                transform: open ? 'translateY(-7px) rotate(-45deg)' : 'none',
+              }}
+            />
+          </button>
+        )}
+      </div>
+
+      {/* Mobile dropdown panel */}
+      {isMobile && open && (
         <div
+          id="mobile-nav-panel"
           style={{
+            borderTop: '1px solid rgba(255,255,255,0.06)',
+            padding: '12px 16px 16px',
             display: 'flex',
+            flexDirection: 'column',
             gap: 4,
             fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-            fontSize: '13px',
+            fontSize: '14px',
           }}
         >
           {NAV_LINKS.map(({ href, label, section }) => {
@@ -115,77 +281,50 @@ export default function Nav() {
               <a
                 key={href}
                 href={href}
+                onClick={() => setOpen(false)}
                 style={{
                   color: isActive ? 'var(--text)' : 'var(--muted)',
-                  padding: '8px 14px',
+                  padding: '12px 12px',
                   borderRadius: 8,
                   textDecoration: 'none',
                   background: isActive ? 'rgba(255,255,255,0.04)' : 'transparent',
-                  transition: 'color 0.15s, background 0.15s',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: 4,
-                  whiteSpace: 'nowrap',
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(255,255,255,0.04)';
-                  (e.currentTarget as HTMLAnchorElement).style.color = 'var(--text)';
-                }}
-                onMouseLeave={(e) => {
-                  if (!isActive) {
-                    (e.currentTarget as HTMLAnchorElement).style.background = 'transparent';
-                    (e.currentTarget as HTMLAnchorElement).style.color = 'var(--muted)';
-                  }
+                  gap: 6,
                 }}
               >
-                {isActive && (
-                  <span style={{ color: 'var(--magenta)', marginRight: 2 }}>▸</span>
-                )}
+                {isActive && <span style={{ color: 'var(--magenta)' }}>▸</span>}
                 {label}
-                {isActive && (
-                  <span
-                    style={{
-                      color: 'var(--magenta)',
-                      animation: 'blink 1s step-end infinite',
-                      marginLeft: 2,
-                    }}
-                  >
-                    ▍
-                  </span>
-                )}
               </a>
             );
           })}
+          <a
+            href="#contact"
+            data-hot
+            onClick={() => setOpen(false)}
+            style={{
+              marginTop: 8,
+              fontFamily: "'JetBrains Mono', ui-monospace, monospace",
+              fontSize: '13px',
+              color: 'var(--text)',
+              background: 'rgba(236,72,153,0.15)',
+              border: '1px solid rgba(236,72,153,0.4)',
+              padding: '12px 14px',
+              borderRadius: 8,
+              textDecoration: 'none',
+              textAlign: 'center',
+            }}
+          >
+            $ ./hire-me
+          </a>
         </div>
+      )}
 
-        {/* CTA */}
-        <a
-          href="#contact"
-          data-hot
-          style={{
-            fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-            fontSize: '12px',
-            color: 'var(--text)',
-            background: 'rgba(236,72,153,0.15)',
-            border: '1px solid rgba(236,72,153,0.4)',
-            padding: '8px 14px',
-            borderRadius: 8,
-            textDecoration: 'none',
-            transition: 'background 0.15s, transform 0.15s',
-            whiteSpace: 'nowrap',
-          }}
-          onMouseEnter={(e) => {
-            (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(236,72,153,0.3)';
-            (e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(-1px)';
-          }}
-          onMouseLeave={(e) => {
-            (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(236,72,153,0.15)';
-            (e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(0)';
-          }}
-        >
-          $ ./hire-me
-        </a>
-      </div>
+      <style>{`
+        @media (max-width: 640px) {
+          nav .nav-row { padding: 12px 16px !important; }
+        }
+      `}</style>
     </nav>
   );
 }

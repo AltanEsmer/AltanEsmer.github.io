@@ -179,6 +179,9 @@ export default function SkillsSection() {
             grid-template-columns: 1fr !important;
           }
         }
+        @media (max-width: 640px) {
+          #skills { padding: 60px 0 !important; }
+        }
       `}</style>
     </section>
   )
