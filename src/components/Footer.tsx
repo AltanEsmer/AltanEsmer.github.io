@@ -1,26 +1,57 @@
-const socialLinks = [
-  { href: '#', label: 'GitHub' },
-  { href: '#', label: 'LinkedIn' },
-  { href: '#', label: 'Email' },
-];
+import { GitFork, ExternalLink, Mail } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="border-t border-neutral-200 py-10 dark:border-neutral-800">
-      <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 px-6 text-center text-sm text-neutral-500 dark:text-neutral-400">
-        <ul className="flex items-center gap-5">
-          {socialLinks.map(({ href, label }) => (
-            <li key={label}>
-              <a
-                href={href}
-                className="underline-offset-4 hover:text-neutral-900 hover:underline dark:hover:text-neutral-100"
-              >
-                {label}
-              </a>
-            </li>
-          ))}
+    <footer className="border-t border-white/10 py-12 px-6 bg-bg">
+      <div className="max-w-7xl mx-auto flex flex-col items-center gap-4 text-center">
+        {/* ASCII art — hidden on mobile */}
+        <pre className="font-mono text-xs text-port-text/20 hidden sm:block leading-tight select-none overflow-x-auto">
+          {`  ___  _  _____  ___  _  _     ___  __  __  __  __  ___  ___
+ | _ \\| ||_   _|/ _ \\| \\| |   | __|/ _||  \\/  || __|| _ \\/ __|
+ |   /| |__| | | (_) | .\` | _ | _| \\_ \\| |\\/| || _| |   /\\__ \\
+ |_|_\\|____|_|  \\___/|_|\\_|(_)|___|___/|_|  |_||___||_|_\\|___/`}
+        </pre>
+
+        {/* Always-visible name */}
+        <span className="gradient-text font-bold text-xl">Altan Esmer</span>
+
+        {/* Social links */}
+        <ul className="flex items-center gap-6 text-port-text/50">
+          <li>
+            <a
+              href="https://github.com/AltanEsmer"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 hover:text-port-text transition-colors text-sm font-mono"
+            >
+              <GitFork size={14} />
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              className="flex items-center gap-1.5 hover:text-port-text transition-colors text-sm font-mono"
+            >
+              <ExternalLink size={14} />
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a
+              href="mailto:contact@altanesmer.dev"
+              className="flex items-center gap-1.5 hover:text-port-text transition-colors text-sm font-mono"
+            >
+              <Mail size={14} />
+              Email
+            </a>
+          </li>
         </ul>
-        <p>© 2026 Altan Esmer · All rights reserved.</p>
+
+        {/* Copyright */}
+        <p className="text-port-text/40 text-sm font-mono mt-4">
+          © 2026 Altan Esmer · Crafted with ♥ and TypeScript
+        </p>
       </div>
     </footer>
   );
