@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, FormEvent } from 'react';
+import { useState, useEffect, useRef, FormEvent } from 'react';
 
 interface FormState {
   name: string;
@@ -12,6 +12,8 @@ interface FormState {
 }
 
 export default function ContactSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+
   const [form, setForm] = useState<FormState>({
     name: '',
     email: '',
@@ -20,6 +22,21 @@ export default function ContactSection() {
     submitted: false,
     errors: {},
   });
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('in');
+        });
+      },
+      { threshold: 0.12 }
+    );
+    el.querySelectorAll('.reveal').forEach((t) => observer.observe(t));
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (!form.submitted) return;
@@ -53,7 +70,7 @@ export default function ContactSection() {
       .join('\n');
 
     const mailto =
-      `mailto:altan.esmer@gmail.com` +
+      `mailto:esmeraltan@gmail.com` +
       `?subject=${encodeURIComponent('Hi Altan')}` +
       `&body=${encodeURIComponent(body)}`;
 
@@ -68,7 +85,12 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="contact" style={{ padding: '100px 0' }}>
+    <section
+      id="contact"
+      ref={sectionRef}
+      className="contact"
+      style={{ padding: '100px 0' }}
+    >
       <div
         className="wrap contact-wrap"
         style={{ maxWidth: 760, margin: '0 auto', padding: '0 24px' }}

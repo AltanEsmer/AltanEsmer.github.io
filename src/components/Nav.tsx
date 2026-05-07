@@ -160,7 +160,7 @@ export default function Nav() {
 
         {/* CTA */}
         <a
-          href="#contact"
+          href="/hire"
           data-hot
           style={{
             fontFamily: "'JetBrains Mono', ui-monospace, monospace",

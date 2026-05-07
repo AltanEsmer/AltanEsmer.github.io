@@ -75,7 +75,7 @@ function TerminalBody() {
         <span style={{ paddingLeft: '1.5em', display: 'block' }}>
           <span style={{ color: 'var(--violet)' }}>&quot;based&quot;</span>
           <span style={{ color: 'var(--dim)' }}>: </span>
-          <span style={{ color: '#b6e7d6' }}>&quot;Cyprus / EU&quot;</span>
+          <span style={{ color: '#b6e7d6' }}>&quot;Denmark / EU&quot;</span>
           <span style={{ color: 'var(--dim)' }}>,</span>
         </span>
       ),
@@ -296,7 +296,7 @@ export default function HeroSection() {
               />
               open to work · remote / EU
             </span>
-            <span>📍 based in Cyprus</span>
+            <span>📍 based in Denmark</span>
             <span>
               uptime:{' '}
               <b style={{ color: 'var(--text)', fontWeight: 500 }}>
