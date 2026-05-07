@@ -177,7 +177,7 @@ export default function Nav() {
         {/* Desktop CTA */}
         {!isMobile && (
           <a
-            href="#contact"
+            href="/hire"
             data-hot
             style={{
               fontFamily: "'JetBrains Mono', ui-monospace, monospace",
@@ -299,7 +299,7 @@ export default function Nav() {
             );
           })}
           <a
-            href="#contact"
+            href="/hire"
             data-hot
             onClick={() => setOpen(false)}
             style={{

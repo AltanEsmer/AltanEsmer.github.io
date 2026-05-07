@@ -59,11 +59,7 @@ export default function Footer() {
               {[
                 { href: 'https://github.com/AltanEsmer', label: 'github.com/AltanEsmer' },
                 { href: 'https://github.com/AlesSystems', label: 'github.com/AlesSystems' },
-                { href: 'https://twitter.com/altanesmer', label: 'twitter.com/altanesmer' },
-                {
-                  href: 'https://linkedin.com/in/altanesmer',
-                  label: 'linkedin.com/in/altanesmer',
-                },
+                { href: 'mailto:esmeraltan@gmail.com', label: 'esmeraltan@gmail.com' },
               ].map(({ href, label }) => (
                 <a
                   key={href}
