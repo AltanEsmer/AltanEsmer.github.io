@@ -96,9 +96,17 @@ export default function ProjectCard({
               fontFamily: "'JetBrains Mono', monospace",
               fontSize: '11px',
               color: 'var(--dim)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '8px',
+              flexWrap: 'wrap',
             }}
           >
-            {featured ? `FEATURED · ${project.num}` : project.num}
+            <span>{featured ? `FEATURED · ${project.num}` : project.num}</span>
+            <span style={{ opacity: 0.5 }}>·</span>
+            <span style={{ textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+              shipped {project.shippedAt}
+            </span>
           </div>
           {featured && live && (
             <div
