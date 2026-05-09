@@ -71,3 +71,17 @@ export function getAllSlugs(type: 'projects' | 'posts'): string[] {
     .filter((f) => f.endsWith('.mdx'))
     .map((f) => f.replace(/\.mdx$/, ''));
 }
+
+export function getAdjacentContent(
+  type: 'projects' | 'posts',
+  slug: string,
+): { prev: ContentItem | null; next: ContentItem | null } {
+  const items = getAllContent(type); // already date-desc
+  const idx = items.findIndex((x) => x.slug === slug);
+  if (idx === -1) return { prev: null, next: null };
+  // prev = older entry → comes after in date-desc array
+  // next = newer entry → comes before in date-desc array
+  const prev = idx < items.length - 1 ? items[idx + 1] : null;
+  const next = idx > 0 ? items[idx - 1] : null;
+  return { prev, next };
+}
