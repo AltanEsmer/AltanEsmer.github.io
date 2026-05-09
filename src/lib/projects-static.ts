@@ -32,6 +32,8 @@ export interface BentoProject {
   preview: Preview;
   span: Span;
   href: string;
+  shippedAt: string;
+  shippedAtISO: string;
   featured?: boolean;
   live?: {
     stats: { value: string; label: string; up?: boolean }[];
@@ -224,6 +226,12 @@ const CURATION: Curation[] = [
   },
 ];
 
+function formatShipped(iso: string): string {
+  const d = new Date(iso);
+  const month = d.toLocaleString('en-US', { month: 'short', timeZone: 'UTC' });
+  return `${month} ${d.getUTCFullYear()}`;
+}
+
 export const PROJECTS: BentoProject[] = CURATION.map((c) => {
   const r = repo(c.fullName);
   return {
@@ -235,6 +243,8 @@ export const PROJECTS: BentoProject[] = CURATION.map((c) => {
     preview: c.preview,
     span: c.span,
     href: r.homepageUrl ?? r.url,
+    shippedAt: formatShipped(r.pushedAt),
+    shippedAtISO: r.pushedAt,
     featured: c.featured,
     live: c.live,
   };
