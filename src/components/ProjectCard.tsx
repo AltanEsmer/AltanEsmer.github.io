@@ -33,7 +33,7 @@ export default function ProjectCard({
         overflow: 'hidden',
         background: 'rgba(26,27,58,.6)',
         border: '1px solid var(--line)',
-        padding: '22px',
+        padding: '28px',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
@@ -135,10 +135,10 @@ export default function ProjectCard({
               borderRadius: '12px',
               background: 'rgba(10,14,39,.6)',
               border: '1px solid var(--line)',
-              padding: '14px',
+              padding: '16px',
               display: 'flex',
               flexDirection: 'column',
-              gap: '10px',
+              gap: '12px',
               backdropFilter: 'blur(6px)',
               overflow: 'hidden',
             }}
@@ -259,7 +259,7 @@ export default function ProjectCard({
             <div
               className="spark"
               style={{
-                height: '32px',
+                height: '40px',
                 display: 'flex',
                 alignItems: 'flex-end',
                 gap: '3px',
@@ -300,7 +300,7 @@ export default function ProjectCard({
             style={{
               fontFamily: "'Space Grotesk', sans-serif",
               fontWeight: 600,
-              fontSize: '22px',
+              fontSize: '26px',
               letterSpacing: '-0.02em',
               margin: '0 0 6px',
               color: 'var(--text)',
@@ -311,10 +311,10 @@ export default function ProjectCard({
           <p
             className="card-desc"
             style={{
-              fontSize: '13px',
+              fontSize: '14px',
               color: 'var(--muted)',
               lineHeight: 1.5,
-              maxWidth: '90%',
+              maxWidth: '94%',
               // Featured card: always visible; normal cards: reveal on hover via CSS in globals
               ...(featured ? { opacity: 1, transform: 'none' } : {}),
             }}
@@ -326,8 +326,8 @@ export default function ProjectCard({
             style={{
               display: 'flex',
               flexWrap: 'wrap',
-              gap: '5px',
-              marginTop: '12px',
+              gap: '7px',
+              marginTop: '14px',
             }}
           >
             {project.stack.map((s) => (

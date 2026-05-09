@@ -95,8 +95,8 @@ export default function ProjectsSection() {
           #projects { padding: 72px 0 !important; }
           #projects .bento {
             grid-template-columns: repeat(2, 1fr) !important;
-            grid-auto-rows: 180px !important;
-            gap: 14px !important;
+            grid-auto-rows: 220px !important;
+            gap: 18px !important;
           }
           #projects .c-2x2, #projects .c-2x1, #projects .c-1x1, #projects .c-1x2 {
             grid-column: span 2 !important;
@@ -247,8 +247,8 @@ export default function ProjectsSection() {
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(6, 1fr)',
-              gap: '20px',
-              gridAutoRows: '220px',
+              gap: '24px',
+              gridAutoRows: '260px',
             }}
           >
             {filtered.map((project) => (
