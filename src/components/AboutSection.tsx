@@ -4,28 +4,16 @@ import { useEffect, useRef } from 'react'
 
 const timelineItems = [
   {
-    year: '2025 — now',
-    title: 'Founder · AlesSystems',
-    meta: 'independent · solo founder',
-    body: 'Building developer tooling I want to use. Currently shipping ales-trading and other internal tools.',
+    year: '2023 — now',
+    title: 'Independent · self-taught',
+    meta: 'building AlesSystems',
+    body: 'Graduated, then went deep on full-stack engineering — TypeScript / React / Node / Python. Building AlesSystems and the developer tooling I actually want to use.',
   },
   {
-    year: '2023 — 2025',
-    title: 'Software Engineer · Various',
-    meta: 'freelance + contract',
-    body: 'End-to-end product work — TypeScript / Python / Postgres. Reduced p99 by 6× on a high-throughput data pipeline.',
-  },
-  {
-    year: '2020 — 2023',
-    title: 'Full-stack Engineer',
-    meta: 'early-stage SaaS',
-    body: 'Built the onboarding flow, billing rewrite, and public API. Wrote the design system the team still uses.',
-  },
-  {
-    year: '2018 — 2022',
-    title: 'B.Sc. Computer Science',
-    meta: 'SDU · Denmark',
-    body: 'Side-quest: organized student hackathons. Thesis on incremental computation.',
+    year: '2019 — 2023',
+    title: 'B.Sc. Computer Science · SDU',
+    meta: 'University of Southern Denmark',
+    body: 'Built my CS foundation — algorithms, systems, and the web platform. The launchpad for everything since.',
   },
 ]
 
@@ -183,7 +171,7 @@ export default function AboutSection() {
               {'  '}
               <span style={{ color: '#5eead4' }}>years</span>
               {': '}
-              <span style={{ color: 'var(--amber)' }}>6</span>
+              <span style={{ color: 'var(--amber)' }}>3</span>
               {','}
             </div>
             <div>

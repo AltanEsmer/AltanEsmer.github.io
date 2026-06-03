@@ -3,11 +3,11 @@
 import { useEffect, useState } from 'react';
 
 const NAV_LINKS = [
-  { href: '#hero', label: '~/home', section: 'hero' },
-  { href: '#projects', label: '~/projects', section: 'projects' },
-  { href: '#about', label: '~/about', section: 'about' },
-  { href: '#skills', label: '~/skills', section: 'skills' },
-  { href: '#contact', label: '~/contact', section: 'contact' },
+  { href: '/#hero', label: '~/home', section: 'hero' },
+  { href: '/#projects', label: '~/projects', section: 'projects' },
+  { href: '/#about', label: '~/about', section: 'about' },
+  { href: '/#skills', label: '~/skills', section: 'skills' },
+  { href: '/#contact', label: '~/contact', section: 'contact' },
 ];
 
 export default function Nav() {
@@ -71,7 +71,7 @@ export default function Nav() {
       >
         {/* Brand */}
         <a
-          href="#hero"
+          href="/"
           data-hot
           style={{
             display: 'flex',

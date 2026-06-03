@@ -31,6 +31,17 @@ export default function ProjectsSection() {
     (p) => filter === 'all' || p.tags.includes(filter as 'fe' | 'be' | 'ds' | 'oss'),
   );
 
+  const counts = useMemo<Record<Filter, number>>(
+    () => ({
+      all: PROJECTS.length,
+      fe: PROJECTS.filter((p) => p.tags.includes('fe')).length,
+      be: PROJECTS.filter((p) => p.tags.includes('be')).length,
+      ds: PROJECTS.filter((p) => p.tags.includes('ds')).length,
+      oss: PROJECTS.filter((p) => p.tags.includes('oss')).length,
+    }),
+    [],
+  );
+
   const stats = useMemo(() => {
     const repos = generated.repos as GeneratedRepo[];
     const languages = new Set(repos.map((r) => r.language).filter(Boolean));
@@ -82,6 +93,10 @@ export default function ProjectsSection() {
     <>
       {/* Responsive collapse styles for bento spans */}
       <style>{`
+        #projects .bento .c-2x2 { grid-column: span 2; grid-row: span 2; }
+        #projects .bento .c-2x1 { grid-column: span 2; grid-row: span 1; }
+        #projects .bento .c-1x2 { grid-column: span 1; grid-row: span 2; }
+        #projects .bento .c-1x1 { grid-column: span 1; grid-row: span 1; }
         @media (max-width: 1000px) {
           .c-2x2, .c-2x1, .c-1x1, .c-1x2 {
             grid-column: span 2 !important;
@@ -238,17 +253,18 @@ export default function ProjectsSection() {
             >
               {'// filter by stack'}
             </div>
-            <ProjectFilters value={filter} onChange={setFilter} />
+            <ProjectFilters value={filter} onChange={setFilter} counts={counts} />
           </div>
 
           {/* Bento grid */}
           <div
+            key={filter}
             className="bento"
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(6, 1fr)',
-              gap: '24px',
-              gridAutoRows: '260px',
+              gridTemplateColumns: 'repeat(4, 1fr)',
+              gap: '28px',
+              gridAutoRows: '320px',
             }}
           >
             {filtered.map((project) => (

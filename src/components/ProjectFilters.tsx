@@ -13,9 +13,11 @@ const FILTER_LABELS: { value: Filter; label: string }[] = [
 export default function ProjectFilters({
   value,
   onChange,
+  counts,
 }: {
   value: Filter;
   onChange: (f: Filter) => void;
+  counts?: Record<Filter, number>;
 }) {
   return (
     <div
@@ -29,6 +31,7 @@ export default function ProjectFilters({
     >
       {FILTER_LABELS.map(({ value: fVal, label }) => {
         const isOn = value === fVal;
+        const count = counts?.[fVal];
         return (
           <button
             key={fVal}
@@ -62,6 +65,9 @@ export default function ProjectFilters({
             }}
           >
             {label}
+            {count !== undefined && (
+              <span style={{ opacity: 0.5, marginLeft: 4 }}>{count}</span>
+            )}
           </button>
         );
       })}
