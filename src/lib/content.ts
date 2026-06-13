@@ -8,7 +8,18 @@ export type Frontmatter = {
   date: string;
   tags?: string[];
   featured?: boolean;
+  /** Project category — drives the Work index filter. */
+  category?: 'Web' | 'Mobile' | 'Desktop' | 'Tools' | string;
+  /** Short role descriptor, e.g. "Solo project", "Bachelor project". */
+  role?: string;
+  /** Optional minutes-to-read label for blog posts, e.g. "4 min read". */
+  readingTime?: string;
 };
+
+/** Four-digit year derived from a frontmatter ISO date. */
+export function getYear(date: string): string {
+  return String(new Date(date).getFullYear());
+}
 
 export type ContentItem = {
   slug: string;

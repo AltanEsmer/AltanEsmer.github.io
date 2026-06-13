@@ -1,173 +1,158 @@
-'use client';
+import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer
-      style={{
-        padding: '60px 0 40px',
-        borderTop: '1px solid var(--line)',
-        marginTop: '60px',
-      }}
-    >
-      <div className="wrap">
-        {/* Three-column grid */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1.4fr 1fr 1fr',
-            gap: '32px',
-          }}
-          className="foot-grid"
-        >
-          {/* Col 1: ASCII art */}
-          <div>
-            <pre
-              className="ascii"
+    <footer style={{ borderTop: '1px solid var(--border)', background: 'var(--surface)' }}>
+      {/* Main footer body */}
+      <div
+        className="wrap"
+        style={{
+          padding: '48px 28px 28px',
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: 40,
+          justifyContent: 'space-between',
+        }}
+      >
+        {/* Left block */}
+        <div style={{ flex: '1 1 320px', maxWidth: 360 }}>
+          <span
+            style={{
+              fontFamily: 'var(--font-serif)',
+              fontSize: 20,
+              fontWeight: 600,
+              color: 'var(--ink)',
+            }}
+          >
+            Altan Esmer
+          </span>
+          <p
+            style={{
+              fontSize: 14.5,
+              color: 'var(--secondary)',
+              lineHeight: 1.6,
+              marginTop: 10,
+              marginBottom: 0,
+            }}
+          >
+            Full-stack software engineer building reliable, accessible software across web, mobile,
+            and desktop.
+          </p>
+          {/* Open to work pill */}
+          <div
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 8,
+              marginTop: 14,
+              fontSize: 13,
+              fontWeight: 500,
+              color: 'var(--secondary)',
+              background: 'var(--bg)',
+              border: '1px solid var(--border)',
+              padding: '6px 12px',
+              borderRadius: 999,
+            }}
+          >
+            <span
               style={{
-                fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-                fontSize: '10px',
-                lineHeight: 1.1,
-                color: 'var(--violet)',
-                whiteSpace: 'pre',
-                opacity: 0.8,
-                margin: 0,
+                width: 7,
+                height: 7,
+                borderRadius: '50%',
+                background: 'var(--green)',
+                flexShrink: 0,
               }}
-            >{`    █████╗ ██╗     ███████╗███████╗
-   ██╔══██╗██║     ██╔════╝██╔════╝
-   ███████║██║     █████╗  ███████╗
-   ██╔══██║██║     ██╔══╝  ╚════██║
-   ██║  ██║███████╗███████╗███████║
-   ╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝
-   :: full-stack product engineer ::`}</pre>
-          </div>
-
-          {/* Col 2: elsewhere */}
-          <div>
-            <div
-              style={{
-                fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-                fontSize: '11px',
-                color: 'var(--dim)',
-                textTransform: 'uppercase',
-                letterSpacing: '0.14em',
-                marginBottom: '12px',
-              }}
-            >
-              elsewhere
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-              {[
-                { href: 'https://github.com/AltanEsmer', label: 'github.com/AltanEsmer' },
-                { href: 'https://github.com/AlesSystems', label: 'github.com/AlesSystems' },
-                { href: 'mailto:esmeraltan@gmail.com', label: 'esmeraltan@gmail.com' },
-              ].map(({ href, label }) => (
-                <a
-                  key={href}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-hot
-                  style={{
-                    color: 'var(--muted)',
-                    fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-                    fontSize: '13px',
-                    padding: '6px 10px',
-                    borderRadius: '6px',
-                    border: '1px solid transparent',
-                    textDecoration: 'none',
-                    transition: 'color 0.15s, background 0.15s, border-color 0.15s',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                  }}
-                  onMouseEnter={(e) => {
-                    const el = e.currentTarget as HTMLAnchorElement;
-                    el.style.color = 'var(--text)';
-                    el.style.background = 'rgba(255,255,255,0.03)';
-                    el.style.borderColor = 'var(--line)';
-                  }}
-                  onMouseLeave={(e) => {
-                    const el = e.currentTarget as HTMLAnchorElement;
-                    el.style.color = 'var(--muted)';
-                    el.style.background = 'transparent';
-                    el.style.borderColor = 'transparent';
-                  }}
-                >
-                  <span style={{ color: 'var(--magenta)' }}>→</span>
-                  {label}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Col 3: colophon */}
-          <div>
-            <div
-              style={{
-                fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-                fontSize: '11px',
-                color: 'var(--dim)',
-                textTransform: 'uppercase',
-                letterSpacing: '0.14em',
-                marginBottom: '12px',
-              }}
-            >
-              colophon
-            </div>
-            <div
-              style={{
-                fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-                fontSize: '12px',
-                color: 'var(--muted)',
-                lineHeight: 1.8,
-              }}
-            >
-              built with: next.js · three.js
-              <br />
-              type: space grotesk + jbm
-              <br />
-              host: github pages
-              <br />
-              co<sub>2</sub>: 0.4g / page-view
-            </div>
+            />
+            Open to work · Replies in &lt; 24h
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div
-          style={{
-            marginTop: '40px',
-            paddingTop: '24px',
-            borderTop: '1px solid var(--line)',
-            display: 'flex',
-            justifyContent: 'space-between',
-            flexWrap: 'wrap',
-            gap: '12px',
-            fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-            fontSize: '11px',
-            color: 'var(--dim)',
-          }}
-        >
-          <div>© 2026 altan esmer — designed &amp; coded with care</div>
+        {/* Right: two link columns */}
+        <div style={{ display: 'flex', gap: 56, flexWrap: 'wrap' }}>
+          {/* Pages column */}
           <div>
-            last commit: <span style={{ color: 'var(--text)' }}>2 hours ago</span> · main ·{' '}
-            <span style={{ color: 'var(--green)' }}>●</span> all systems normal
+            <div
+              style={{
+                fontSize: 12,
+                fontWeight: 600,
+                textTransform: 'uppercase',
+                letterSpacing: '0.08em',
+                color: 'var(--muted)',
+                marginBottom: 12,
+              }}
+            >
+              Pages
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+              <Link href="/" className="footer-link">
+                Home
+              </Link>
+              <Link href="/projects" className="footer-link">
+                Work
+              </Link>
+              <Link href="/blog" className="footer-link">
+                Writing
+              </Link>
+              <Link href="/about" className="footer-link">
+                About
+              </Link>
+              <Link href="/contact" className="footer-link">
+                Contact
+              </Link>
+            </div>
+          </div>
+
+          {/* Elsewhere column */}
+          <div>
+            <div
+              style={{
+                fontSize: 12,
+                fontWeight: 600,
+                textTransform: 'uppercase',
+                letterSpacing: '0.08em',
+                color: 'var(--muted)',
+                marginBottom: 12,
+              }}
+            >
+              Elsewhere
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+              <a href="mailto:esmeraltan@gmail.com" className="footer-link">
+                Email
+              </a>
+              <a
+                href="https://github.com/AltanEsmer"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-link"
+              >
+                GitHub
+              </a>
+              <a
+                href="https://www.linkedin.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-link"
+              >
+                LinkedIn
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Responsive styles */}
-      <style>{`
-        @media (max-width: 800px) {
-          .foot-grid {
-            grid-template-columns: 1fr !important;
-          }
-        }
-        @media (max-width: 640px) {
-          footer { padding: 40px 0 24px !important; }
-          .ascii { font-size: 8px !important; overflow-x: auto; }
-        }
-      `}</style>
+      {/* Bottom bar */}
+      <div
+        className="wrap"
+        style={{
+          padding: '18px 28px',
+          borderTop: '1px solid var(--divider)',
+          fontSize: 13,
+          color: 'var(--faint)',
+        }}
+      >
+        © 2026 Altan Esmer · Built with care
+      </div>
     </footer>
   );
 }

@@ -1,188 +1,95 @@
-'use client'
+import Reveal from '@/components/ui/Reveal';
+import Kicker from '@/components/ui/Kicker';
 
-import { useEffect, useRef } from 'react'
-import dynamic from 'next/dynamic'
-
-const ConstellationScene = dynamic(() => import('./ConstellationScene'), { ssr: false })
-
-const legendItems = [
-  { color: '#3B82F6', label: 'frontend · 9 nodes' },
-  { color: '#8B5CF6', label: 'backend · 7 nodes' },
-  { color: '#14B8A6', label: 'devops · 5 nodes' },
-  { color: '#EC4899', label: 'design · 4 nodes' },
-]
-
-function useReveal(ref: React.RefObject<Element | null>) {
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in')
-          }
-        })
-      },
-      { threshold: 0.1 }
-    )
-    const targets = el.querySelectorAll('.reveal')
-    targets.forEach((t) => observer.observe(t))
-    return () => observer.disconnect()
-  }, [ref])
-}
+const SKILLS: { group: string; items: string[] }[] = [
+  {
+    group: 'Frontend',
+    items: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'HTML & CSS'],
+  },
+  {
+    group: 'Backend',
+    items: ['Node.js', 'Python', 'C# / .NET', 'REST APIs', 'PostgreSQL'],
+  },
+  {
+    group: 'Mobile & Cross-platform',
+    items: ['Kotlin / KMP', 'Jetpack Compose', 'React Native', 'Swift (basics)'],
+  },
+  {
+    group: 'DevOps & Tooling',
+    items: ['Git', 'GitHub Actions', 'Docker', 'Vite', 'CI/CD'],
+  },
+];
 
 export default function SkillsSection() {
-  const sectionRef = useRef<HTMLElement>(null)
-  useReveal(sectionRef)
-
   return (
-    <section id="skills" ref={sectionRef} style={{ padding: '100px 0 80px' }}>
-      <div className="wrap">
-        {/* Section header */}
-        <div className="section-head reveal">
-          <span className="num">04 //</span>
-          <span>skills.constellation</span>
-          <span className="line" />
-        </div>
+    <section
+      style={{
+        background: 'var(--surface)',
+        borderTop: '1px solid var(--border-light)',
+        borderBottom: '1px solid var(--border-light)',
+      }}
+    >
+      <div className="wrap" style={{ padding: '56px 28px' }}>
+        <Reveal>
+          <Kicker>Capabilities</Kicker>
+          <h2
+            style={{
+              fontFamily: 'var(--font-serif)',
+              fontWeight: 500,
+              fontSize: 'clamp(26px, 3vw, 34px)',
+              margin: '10px 0 0',
+              color: 'var(--ink)',
+            }}
+          >
+            Skills &amp; tools
+          </h2>
+        </Reveal>
 
-        {/* Two-column grid */}
-        <div
+        <Reveal
           style={{
             display: 'grid',
-            gridTemplateColumns: '1fr 1.1fr',
-            gap: '48px',
-            alignItems: 'center',
+            gap: '32px 28px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            marginTop: 32,
           }}
-          className="skills-grid-responsive"
         >
-          {/* LEFT — heading + legend */}
-          <div className="reveal">
-            <h2
-              className="display"
-              style={{
-                fontWeight: 700,
-                fontSize: 'clamp(2rem, 4vw, 3.6rem)',
-                letterSpacing: '-0.04em',
-                lineHeight: '0.95',
-                margin: '0 0 14px',
-                color: 'var(--text)',
-              }}
-            >
-              A constellation,
-              <br />
-              not a checklist.
-            </h2>
-            <p
-              style={{
-                color: 'var(--muted)',
-                fontSize: '15px',
-                lineHeight: '1.65',
-                maxWidth: '480px',
-                margin: 0,
-              }}
-            >
-              Drag the cluster to rotate. Hover any node to see how I use it
-              day-to-day. I don&apos;t list every tool I&apos;ve touched —
-              only the ones I actually reach for.
-            </p>
-
-            {/* Legend */}
-            <div
-              style={{
-                marginTop: '18px',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '10px',
-                fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-                fontSize: '12px',
-              }}
-            >
-              {legendItems.map(({ color, label }) => (
-                <div
-                  key={label}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '10px',
-                    color: 'var(--muted)',
-                  }}
-                >
-                  <span
-                    style={{
-                      width: '10px',
-                      height: '10px',
-                      borderRadius: '999px',
-                      background: color,
-                      boxShadow: `0 0 8px ${color}`,
-                      flexShrink: 0,
-                    }}
-                  />
-                  {label}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* RIGHT — constellation stage */}
-          <div className="reveal" style={{ position: 'relative' }}>
-            <div
-              style={{
-                aspectRatio: '1 / 1',
-                maxWidth: '560px',
-                borderRadius: '24px',
-                border: '1px solid var(--line)',
-                background: 'rgba(13,18,48,.4)',
-                position: 'relative',
-                overflow: 'hidden',
-              }}
-            >
-              <div style={{ width: '100%', height: '100%' }}>
-                <ConstellationScene />
-              </div>
-
-              {/* Hint overlay */}
-              <div
+          {SKILLS.map(({ group, items }) => (
+            <div key={group}>
+              <h3
                 style={{
-                  position: 'absolute',
-                  left: '14px',
-                  bottom: '14px',
-                  fontFamily: "'JetBrains Mono', ui-monospace, monospace",
-                  fontSize: '11px',
-                  color: 'var(--dim)',
-                  pointerEvents: 'none',
+                  fontSize: 12.5,
+                  fontWeight: 600,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.08em',
+                  color: 'var(--muted)',
+                  margin: '0 0 14px',
+                  paddingBottom: 10,
+                  borderBottom: '2px solid var(--divider)',
                 }}
               >
-                drag{' '}
-                <kbd
-                  style={{
-                    background: 'rgba(255,255,255,.06)',
-                    padding: '2px 6px',
-                    borderRadius: '4px',
-                    border: '1px solid var(--line)',
-                    margin: '0 2px',
-                  }}
-                >
-                  mouse
-                </kbd>{' '}
-                to rotate · hover for detail
+                {group}
+              </h3>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                {items.map((skill) => (
+                  <span
+                    key={skill}
+                    style={{
+                      fontSize: 13.5,
+                      color: 'var(--prose)',
+                      background: 'var(--bg)',
+                      border: '1px solid var(--border-light)',
+                      padding: '6px 12px',
+                      borderRadius: 8,
+                    }}
+                  >
+                    {skill}
+                  </span>
+                ))}
               </div>
             </div>
-          </div>
-        </div>
+          ))}
+        </Reveal>
       </div>
-
-      {/* Responsive single-column on narrow viewports */}
-      <style>{`
-        @media (max-width: 1000px) {
-          .skills-grid-responsive {
-            grid-template-columns: 1fr !important;
-          }
-        }
-        @media (max-width: 640px) {
-          #skills { padding: 60px 0 !important; }
-        }
-      `}</style>
     </section>
-  )
+  );
 }
