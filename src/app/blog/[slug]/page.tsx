@@ -1,15 +1,14 @@
 import { notFound } from 'next/navigation';
-import { getAllSlugs, getContentBySlug } from '@/lib/content';
+import Link from 'next/link';
+import Reveal from '@/components/ui/Reveal';
+import ArticleNav from '@/components/ui/ArticleNav';
+import { getAllSlugs, getContentBySlug, getAdjacentContent } from '@/lib/content';
 
 export function generateStaticParams() {
   return getAllSlugs('posts').map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export async function generateMetadata({ params }: { params: { slug: string } }) {
   const item = getContentBySlug('posts', params.slug);
   if (!item) return {};
   return {
@@ -18,47 +17,116 @@ export async function generateMetadata({
   };
 }
 
-export default async function BlogPostPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+function formatMonthYear(dateStr: string): string {
+  return new Date(dateStr).toLocaleDateString('en-US', {
+    month: 'long',
+    year: 'numeric',
+  });
+}
+
+function estimateReadTime(body: string, readingTime?: string): string {
+  if (readingTime) return readingTime;
+  return `${Math.max(1, Math.round(body.trim().split(/\s+/).length / 200))} min read`;
+}
+
+export default async function BlogPostPage({ params }: { params: { slug: string } }) {
   const item = getContentBySlug('posts', params.slug);
   if (!item) notFound();
+
+  const { prev, next } = getAdjacentContent('posts', params.slug);
 
   const { default: MDXContent } = await import(
     `../../../../content/posts/${params.slug}.mdx`
   );
 
+  const fm = item.frontmatter;
+  const tag = fm.tags && fm.tags.length > 0 ? fm.tags[0] : null;
+  const readTime = estimateReadTime(item.body, fm.readingTime);
+  const date = formatMonthYear(fm.date);
+
   return (
-    <div className="mx-auto max-w-3xl px-6 py-10">
-    <article className="prose-mdx">
-      <header className="mb-8">
-        <h1 className="text-3xl font-bold text-neutral-900 dark:text-neutral-100">
-          {item.frontmatter.title}
-        </h1>
-        <p className="mt-2 text-sm text-neutral-500 dark:text-neutral-400">
-          {new Date(item.frontmatter.date).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          })}
-        </p>
-        {item.frontmatter.tags && item.frontmatter.tags.length > 0 && (
-          <ul className="mt-3 flex flex-wrap gap-2">
-            {item.frontmatter.tags.map((tag) => (
-              <li
-                key={tag}
-                className="rounded-full bg-neutral-100 px-2.5 py-0.5 text-xs font-medium text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300"
+    <article style={{ maxWidth: 720, margin: '0 auto', padding: '44px 28px 76px' }}>
+      {/* Back link */}
+      <Link
+        href="/blog"
+        className="article-nav-link"
+        style={{
+          fontSize: 14,
+          fontWeight: 500,
+          color: 'var(--muted)',
+          textDecoration: 'none',
+        }}
+      >
+        ← All posts
+      </Link>
+
+      <Reveal>
+        {/* Meta row */}
+        <div
+          style={{
+            display: 'flex',
+            gap: 10,
+            alignItems: 'center',
+            fontSize: 13,
+            color: 'var(--muted)',
+            marginTop: 22,
+          }}
+        >
+          <span>{date}</span>
+          <span>·</span>
+          <span>{readTime}</span>
+          {tag && (
+            <>
+              <span>·</span>
+              <span
+                style={{
+                  color: 'var(--amber)',
+                  fontWeight: 600,
+                }}
               >
                 {tag}
-              </li>
-            ))}
-          </ul>
-        )}
-      </header>
-      <MDXContent />
+              </span>
+            </>
+          )}
+        </div>
+
+        {/* Title */}
+        <h1
+          style={{
+            fontFamily: 'var(--font-serif)',
+            fontWeight: 500,
+            fontSize: 'clamp(34px, 5vw, 50px)',
+            lineHeight: 1.1,
+            letterSpacing: '-0.02em',
+            margin: '14px 0 0',
+            color: 'var(--ink)',
+          }}
+        >
+          {fm.title}
+        </h1>
+
+        {/* Description */}
+        <p
+          style={{
+            fontSize: 'clamp(18px, 1.8vw, 21px)',
+            lineHeight: 1.55,
+            color: 'var(--secondary)',
+            margin: '18px 0 0',
+          }}
+        >
+          {fm.description}
+        </p>
+      </Reveal>
+
+      {/* Body */}
+      <Reveal>
+        <div className="prose-mdx" style={{ marginTop: 8 }}>
+          <MDXContent />
+        </div>
+      </Reveal>
+
+      {/* Prev / Next navigation */}
+      <ArticleNav prev={prev} next={next} basePath="/blog" />
     </article>
-    </div>
   );
 }
