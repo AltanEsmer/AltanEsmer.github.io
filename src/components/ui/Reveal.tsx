@@ -1,38 +1,80 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import type { ReactNode, ElementType } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import type { ReactNode, ElementType, CSSProperties } from 'react';
+import { cn } from '@/lib/cn';
 
 type RevealProps = {
   children: ReactNode;
   className?: string;
+  /** Stagger delay in seconds. */
   delay?: number;
+  /** Element to render (defaults to div). */
   as?: ElementType;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
 };
 
 /**
- * Gentle fade + slide-up on scroll. Respects prefers-reduced-motion
- * (framer-motion disables transforms automatically when the user opts out).
+ * Gentle fade + slide-up on scroll via IntersectionObserver, toggling the
+ * `.reveal` / `.reveal.in` classes defined in globals.css. Respects
+ * prefers-reduced-motion (and that media query is also handled in CSS).
+ * A timeout fallback guarantees content shows even if the observer never fires.
  */
 export default function Reveal({
   children,
   className,
   delay = 0,
-  as = 'div',
+  as,
   style,
 }: RevealProps) {
-  const MotionTag = motion(as as ElementType);
+  const Tag = (as || 'div') as ElementType;
+  const ref = useRef<HTMLElement | null>(null);
+  const [shown, setShown] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const reduce =
+      typeof window.matchMedia === 'function' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduce || !('IntersectionObserver' in window)) {
+      setShown(true);
+      return;
+    }
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setShown(true);
+            io.disconnect();
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' },
+    );
+    io.observe(el);
+
+    const fallback = setTimeout(() => setShown(true), 1500);
+
+    return () => {
+      io.disconnect();
+      clearTimeout(fallback);
+    };
+  }, []);
+
   return (
-    <MotionTag
-      className={className}
-      style={style}
-      initial={{ opacity: 0, y: 18 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1], delay }}
+    <Tag
+      ref={ref}
+      className={cn('reveal', shown && 'in', className)}
+      style={{
+        transitionDelay: delay ? `${delay}s` : undefined,
+        ...style,
+      }}
     >
       {children}
-    </MotionTag>
+    </Tag>
   );
 }

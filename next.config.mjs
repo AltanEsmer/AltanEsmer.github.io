@@ -1,4 +1,5 @@
 import createMDX from '@next/mdx';
+import remarkFrontmatter from 'remark-frontmatter';
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
@@ -10,13 +11,14 @@ const nextConfig = {
   images: { unoptimized: true },
   pageExtensions: ['ts', 'tsx', 'mdx'],
   reactStrictMode: true,
-  transpilePackages: ['three'],
 };
 
 const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [remarkGfm],
+    // remarkFrontmatter strips the gray-matter `---` block so it is not
+    // rendered as body content (the page reads frontmatter via gray-matter).
+    remarkPlugins: [remarkFrontmatter, remarkGfm],
     rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, { behavior: 'wrap' }]],
   },
 });
