@@ -1,42 +1,242 @@
-import MotionSection from '@/components/MotionSection';
+import Reveal from '@/components/ui/Reveal';
+import Button from '@/components/ui/Button';
+import Kicker from '@/components/ui/Kicker';
 
 export const metadata = {
   title: 'About — Altan Esmer',
-  description: 'A little about who I am and what I work on.',
+  description:
+    'Full-stack software engineer based in Denmark, building reliable, accessible software across web, mobile, and desktop.',
 };
+
+const TIMELINE = [
+  {
+    year: '2025',
+    title: 'Building & writing',
+    desc: 'Shipping gym-progress and publishing project case studies and notes.',
+  },
+  {
+    year: '2024',
+    title: 'Desktop & cross-platform',
+    desc: 'Built the System Health Dashboard (C# / WPF) and KMP Weather with Kotlin Multiplatform.',
+  },
+  {
+    year: '2023',
+    title: 'B.Sc. Computer Science',
+    desc: 'Graduated from the University of Southern Denmark. Bachelor project: Tutoria, a phonics app for children with dyslexia.',
+  },
+  {
+    year: '2019',
+    title: 'Started university',
+    desc: 'Began the B.Sc. in Computer Science at the University of Southern Denmark.',
+  },
+];
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-3xl px-6 py-10">
-    <MotionSection>
-      <h1 className="mb-8 text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100">
-        About
-      </h1>
-      <div className="prose-mdx">
-        <p>
-          I am a software engineer with a focus on frontend architecture and web
-          performance. Most of my work lives at the intersection of product and
-          platform — I care about the experience end users have just as much as
-          the developer experience of the teams building it.
-        </p>
-        <p>
-          I have spent time working on real-time systems, design systems, and
-          static site infrastructure. I enjoy the kind of problem that requires
-          you to understand both the constraints of the browser and the
-          constraints of the server — and to make thoughtful tradeoffs between
-          them. When something is slow, I want to know exactly why, and I tend
-          to reach for profiling tools and architectural changes before adding
-          more infrastructure.
-        </p>
-        <p>
-          Outside of engineering work, I read widely — mostly history,
-          philosophy of mind, and the occasional novel. I believe the best
-          technical decisions are made by people who can think clearly beyond
-          the technical domain, and I try to cultivate that in myself. If any
-          of my writing resonates with you, feel free to reach out.
-        </p>
-      </div>
-    </MotionSection>
-    </div>
+    <section style={{ maxWidth: 1000, margin: '0 auto', padding: '52px 28px 76px' }}>
+      {/* Intro block */}
+      <Reveal>
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: 48,
+            alignItems: 'flex-start',
+          }}
+        >
+          {/* Left column */}
+          <div style={{ flex: '1 1 440px', minWidth: 300 }}>
+            <Kicker>About</Kicker>
+            <h1
+              style={{
+                fontFamily: 'var(--font-serif)',
+                fontWeight: 500,
+                fontSize: 'clamp(34px, 4.5vw, 50px)',
+                letterSpacing: '-0.02em',
+                margin: '10px 0 0',
+                color: 'var(--ink)',
+              }}
+            >
+              Hi, I&rsquo;m Altan.
+            </h1>
+
+            <p
+              style={{
+                fontSize: 'clamp(18px, 1.7vw, 21px)',
+                lineHeight: 1.6,
+                color: 'var(--prose)',
+                margin: '20px 0 0',
+              }}
+            >
+              I&rsquo;m a full-stack software engineer based in Denmark, building reliable,
+              accessible software across web, mobile, and desktop.
+            </p>
+
+            <p
+              style={{
+                fontSize: 16.5,
+                lineHeight: 1.75,
+                color: 'var(--secondary)',
+                margin: '16px 0 0',
+              }}
+            >
+              I work mainly in TypeScript, React, and Node, and I&rsquo;m comfortable reaching for
+              the right tool when a problem calls for it — Kotlin Multiplatform for shared mobile
+              code, C# and .NET on the desktop, or Python for quick, focused utilities.
+            </p>
+
+            <p
+              style={{
+                fontSize: 16.5,
+                lineHeight: 1.75,
+                color: 'var(--secondary)',
+                margin: '16px 0 0',
+              }}
+            >
+              What ties it together is a preference for calm, careful work: small testable pieces,
+              clear interfaces, strong accessibility, and performance treated as a feature. I&rsquo;m
+              currently open to remote roles and freelance work across the EU.
+            </p>
+
+            <div
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: 12,
+                marginTop: 26,
+              }}
+            >
+              <Button href="/contact">Get in touch</Button>
+              <Button href="/projects" variant="secondary">
+                View work
+              </Button>
+            </div>
+          </div>
+
+          {/* Right column — portrait placeholder */}
+          <div
+            style={{
+              flex: '0 1 280px',
+              minWidth: 240,
+              aspectRatio: '4/5',
+              borderRadius: 16,
+              background: 'var(--placeholder)',
+              border: '1px solid var(--border)',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 12,
+            }}
+          >
+            <div
+              style={{
+                width: 84,
+                height: 84,
+                borderRadius: '50%',
+                background: 'var(--blue)',
+                color: '#fff',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontFamily: 'var(--font-serif)',
+                fontWeight: 600,
+                fontSize: 34,
+              }}
+            >
+              AE
+            </div>
+            <span
+              style={{
+                fontSize: 12,
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                color: 'var(--faint)',
+              }}
+            >
+              Portrait
+            </span>
+          </div>
+        </div>
+      </Reveal>
+
+      {/* Timeline block */}
+      <Reveal delay={0.1}>
+        <div style={{ marginTop: 64 }}>
+          <h2
+            style={{
+              fontFamily: 'var(--font-serif)',
+              fontWeight: 500,
+              fontSize: 'clamp(26px, 3vw, 32px)',
+              letterSpacing: '-0.01em',
+              margin: 0,
+              color: 'var(--ink)',
+            }}
+          >
+            Education &amp; milestones
+          </h2>
+
+          <div
+            style={{
+              marginTop: 26,
+              borderLeft: '2px solid var(--border-light)',
+              paddingLeft: 4,
+            }}
+          >
+            {TIMELINE.map((item) => (
+              <div
+                key={item.year}
+                style={{ position: 'relative', padding: '0 0 28px 28px' }}
+              >
+                <span
+                  style={{
+                    position: 'absolute',
+                    left: -7,
+                    top: 4,
+                    width: 12,
+                    height: 12,
+                    borderRadius: '50%',
+                    background: 'var(--surface)',
+                    border: '2px solid var(--blue)',
+                  }}
+                />
+                <div
+                  style={{
+                    fontSize: 13,
+                    fontWeight: 600,
+                    color: 'var(--amber)',
+                    letterSpacing: '0.04em',
+                  }}
+                >
+                  {item.year}
+                </div>
+                <div
+                  style={{
+                    fontFamily: 'var(--font-serif)',
+                    fontSize: 19,
+                    fontWeight: 600,
+                    marginTop: 3,
+                    color: 'var(--ink)',
+                  }}
+                >
+                  {item.title}
+                </div>
+                <div
+                  style={{
+                    fontSize: 15,
+                    lineHeight: 1.6,
+                    color: 'var(--secondary)',
+                    marginTop: 5,
+                    maxWidth: 560,
+                  }}
+                >
+                  {item.desc}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Reveal>
+    </section>
   );
 }
