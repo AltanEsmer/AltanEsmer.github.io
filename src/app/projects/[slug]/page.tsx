@@ -4,9 +4,11 @@ import {
   getAllSlugs,
   getContentBySlug,
   getAdjacentContent,
-  getAllContent,
+  getYear,
 } from '@/lib/content';
-import ProjectNavigation from '@/components/ProjectNavigation';
+import Reveal from '@/components/ui/Reveal';
+import Tag from '@/components/ui/Tag';
+import ArticleNav from '@/components/ui/ArticleNav';
 
 export function generateStaticParams() {
   return getAllSlugs('projects').map((slug) => ({ slug }));
@@ -33,132 +35,135 @@ export default async function ProjectPage({
   const item = getContentBySlug('projects', params.slug);
   if (!item) notFound();
 
-  const all = getAllContent('projects');
-  const idx = all.findIndex((p) => p.slug === params.slug);
-  const num = String(idx + 1).padStart(2, '0');
   const { prev, next } = getAdjacentContent('projects', params.slug);
 
   const { default: MDXContent } = await import(
     `../../../../content/projects/${params.slug}.mdx`
   );
 
-  const date = new Date(item.frontmatter.date).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
+  const year = getYear(item.frontmatter.date);
 
   return (
-    <section style={{ padding: '60px 0 100px' }}>
-      <div className="wrap" style={{ maxWidth: 920 }}>
-        {/* Back link */}
-        <Link
-          href="/projects"
-          style={{
-            fontFamily: "'JetBrains Mono', monospace",
-            fontSize: 13,
-            color: 'var(--muted)',
-            textDecoration: 'none',
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 8,
-            marginBottom: 32,
-            transition: 'color .2s',
-          }}
-        >
-          ← back to projects
-        </Link>
+    <article style={{ maxWidth: 760, margin: '0 auto', padding: '44px 28px 76px' }}>
+      {/* Back link */}
+      <Link
+        href="/projects"
+        className="article-nav-link"
+        style={{
+          fontSize: 14,
+          fontWeight: 500,
+          color: 'var(--muted)',
+          textDecoration: 'none',
+        }}
+      >
+        ← All projects
+      </Link>
 
-        {/* Section head */}
-        <div className="section-head" style={{ marginBottom: 24 }}>
-          <span className="num">{num} {'//'}</span>
-          <span>{params.slug}.mdx</span>
-          <span className="line" />
-          <span>{date}</span>
-        </div>
-
-        {/* Hero */}
-        <header style={{ marginBottom: 40 }}>
-          <h1
-            style={{
-              fontFamily: "'Space Grotesk', sans-serif",
-              fontWeight: 700,
-              fontSize: 'clamp(2rem, 4.5vw, 3.2rem)',
-              letterSpacing: '-0.03em',
-              lineHeight: 1.05,
-              margin: '0 0 16px',
-              color: 'var(--text)',
-            }}
-          >
-            {item.frontmatter.title}
-          </h1>
-          <p
-            style={{
-              fontSize: 18,
-              lineHeight: 1.55,
-              color: 'var(--muted)',
-              margin: '0 0 20px',
-              maxWidth: 720,
-            }}
-          >
-            {item.frontmatter.description}
-          </p>
-          {item.frontmatter.tags && item.frontmatter.tags.length > 0 && (
-            <ul
-              style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                gap: 7,
-                listStyle: 'none',
-                padding: 0,
-                margin: 0,
-              }}
-            >
-              {item.frontmatter.tags.map((tag) => (
-                <li key={tag}>
-                  <span className="chip">{tag}</span>
-                </li>
-              ))}
-            </ul>
-          )}
-        </header>
-
-        {/* Gradient separator */}
+      {/* Header meta + title + blurb + tags */}
+      <Reveal delay={0.05}>
+        {/* Meta row */}
         <div
           style={{
-            height: 1,
-            background: 'var(--grad-soft)',
-            opacity: 0.6,
-            margin: '0 0 40px',
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: 10,
+            alignItems: 'center',
+            fontSize: 13,
+            color: 'var(--muted)',
+            marginTop: 22,
           }}
-        />
-
-        {/* MDX body */}
-        <article className="prose-mdx">
-          <MDXContent />
-        </article>
-
-        {/* Prev/Next navigation */}
-        <ProjectNavigation prev={prev} next={next} />
-
-        {/* All projects link */}
-        <div style={{ marginTop: 40, textAlign: 'center' }}>
-          <Link
-            href="/projects"
+        >
+          <span
             style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: 13,
-              color: 'var(--muted)',
-              textDecoration: 'none',
-              display: 'inline-flex',
-              gap: 8,
-              transition: 'color .2s',
+              fontWeight: 600,
+              letterSpacing: '0.06em',
+              textTransform: 'uppercase',
+              color: 'var(--amber)',
             }}
           >
-            all projects →
-          </Link>
+            {item.frontmatter.category ?? 'Project'}
+          </span>
+          <span>·</span>
+          <span>{year}</span>
+          <span>·</span>
+          <span>{item.frontmatter.role ?? 'Solo project'}</span>
         </div>
-      </div>
-    </section>
+
+        {/* Title */}
+        <h1
+          style={{
+            fontFamily: 'var(--font-serif)',
+            fontWeight: 500,
+            fontSize: 'clamp(34px, 5vw, 52px)',
+            lineHeight: 1.08,
+            letterSpacing: '-0.02em',
+            margin: '14px 0 0',
+            color: 'var(--ink)',
+          }}
+        >
+          {item.frontmatter.title}
+        </h1>
+
+        {/* Blurb */}
+        <p
+          style={{
+            fontSize: 'clamp(18px, 1.8vw, 21px)',
+            lineHeight: 1.55,
+            color: 'var(--secondary)',
+            margin: '18px 0 0',
+          }}
+        >
+          {item.frontmatter.description}
+        </p>
+
+        {/* Tags */}
+        {item.frontmatter.tags && item.frontmatter.tags.length > 0 && (
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: 7,
+              marginTop: 20,
+            }}
+          >
+            {item.frontmatter.tags.map((t) => (
+              <Tag key={t}>{t}</Tag>
+            ))}
+          </div>
+        )}
+      </Reveal>
+
+      {/* Preview placeholder */}
+      <Reveal delay={0.1}>
+        <div
+          style={{
+            margin: '32px 0',
+            height: 300,
+            borderRadius: 14,
+            background: 'var(--placeholder)',
+            border: '1px solid var(--border)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: 'var(--faint)',
+            fontSize: 12,
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+          }}
+        >
+          Project preview
+        </div>
+      </Reveal>
+
+      {/* MDX body */}
+      <Reveal delay={0.15}>
+        <div className="prose-mdx">
+          <MDXContent />
+        </div>
+      </Reveal>
+
+      {/* Prev / Next navigation */}
+      <ArticleNav prev={prev} next={next} basePath="/projects" />
+    </article>
   );
 }
