@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500">
+  <!-- Background -->
+  <rect width="1200" height="500" fill="#f3efe7"/>
+  <!-- Inner border -->
+  <rect x="12" y="12" width="1176" height="476" fill="none" stroke="#e9e4da" stroke-width="1"/>
+
+  <!-- LEFT TEXT BLOCK -->
+  <!-- Eyebrow label -->
+  <text x="72" y="170" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#a8a195" letter-spacing="0.15em" font-weight="500" text-anchor="start">MOBILE · CASE STUDY</text>
+
+  <!-- Title -->
+  <text x="72" y="250" font-family="Georgia, 'Times New Roman', serif" font-size="62" fill="#1c1a17" font-weight="normal" text-anchor="start">KMP Weather</text>
+
+  <!-- Thin rule under title -->
+  <line x1="72" y1="272" x2="420" y2="272" stroke="#ddd6c9" stroke-width="1"/>
+
+  <!-- Tag pills -->
+  <!-- kotlin -->
+  <rect x="72" y="292" width="74" height="28" rx="4" fill="#ffffff" stroke="#ddd6c9" stroke-width="1"/>
+  <text x="109" y="311" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#57534e" text-anchor="middle">kotlin</text>
+
+  <!-- kmp -->
+  <rect x="156" y="292" width="54" height="28" rx="4" fill="#ffffff" stroke="#ddd6c9" stroke-width="1"/>
+  <text x="183" y="311" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#57534e" text-anchor="middle">kmp</text>
+
+  <!-- compose -->
+  <rect x="220" y="292" width="82" height="28" rx="4" fill="#ffffff" stroke="#ddd6c9" stroke-width="1"/>
+  <text x="261" y="311" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#57534e" text-anchor="middle">compose</text>
+
+  <!-- Secondary description -->
+  <text x="72" y="370" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#a8a195" text-anchor="start">Shared business logic across Android &amp; iOS</text>
+
+  <!-- RIGHT SIDE MOTIF -->
+  <!-- Shared module platform line -->
+  <line x1="720" y1="310" x2="1100" y2="310" stroke="#ddd6c9" stroke-width="1" stroke-dasharray="4 4"/>
+
+  <!-- Shared KMP module box -->
+  <rect x="855" y="318" width="110" height="42" rx="6" fill="#ffffff" stroke="#ddd6c9" stroke-width="1"/>
+  <text x="910" y="337" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#a8a195" text-anchor="middle" letter-spacing="0.08em">SHARED</text>
+  <text x="910" y="351" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#57534e" text-anchor="middle" font-weight="600">KMP Module</text>
+
+  <!-- Vertical connector lines from phones to module -->
+  <line x1="790" y1="300" x2="855" y2="330" stroke="#e9e4da" stroke-width="1"/>
+  <line x1="1030" y1="300" x2="965" y2="330" stroke="#e9e4da" stroke-width="1"/>
+
+  <!-- ANDROID PHONE (left) -->
+  <!-- Phone body -->
+  <rect x="724" y="128" width="130" height="220" rx="16" fill="#ffffff" stroke="#1c1a17" stroke-width="1.5"/>
+  <!-- Screen area -->
+  <rect x="734" y="150" width="110" height="170" rx="4" fill="#f3efe7"/>
+  <!-- Speaker slot -->
+  <rect x="762" y="136" width="55" height="5" rx="2.5" fill="#ddd6c9"/>
+  <!-- Home bar -->
+  <rect x="762" y="328" width="55" height="4" rx="2" fill="#ddd6c9"/>
+
+  <!-- Android weather screen content -->
+  <!-- Sun behind cloud - amber sun -->
+  <circle cx="789" cy="204" r="18" fill="#d97706" opacity="0.9"/>
+  <!-- Cloud over sun -->
+  <ellipse cx="802" cy="216" rx="20" ry="13" fill="#ffffff" stroke="#ddd6c9" stroke-width="1.2"/>
+  <ellipse cx="789" cy="218" rx="14" ry="11" fill="#ffffff" stroke="#ddd6c9" stroke-width="1.2"/>
+  <ellipse cx="815" cy="220" rx="12" ry="9" fill="#ffffff" stroke="#ddd6c9" stroke-width="1.2"/>
+
+  <!-- Temp text on android screen -->
+  <text x="789" y="248" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#1c1a17" text-anchor="middle">22°</text>
+  <text x="789" y="265" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#a8a195" text-anchor="middle" letter-spacing="0.05em">ANDROID</text>
+
+  <!-- iOS PHONE (right) -->
+  <!-- Phone body -->
+  <rect x="964" y="118" width="136" height="236" rx="22" fill="#ffffff" stroke="#1c1a17" stroke-width="1.5"/>
+  <!-- Screen area -->
+  <rect x="976" y="148" width="112" height="180" rx="6" fill="#f3efe7"/>
+  <!-- Dynamic island notch -->
+  <rect x="1009" y="128" width="50" height="14" rx="7" fill="#1c1a17"/>
+  <!-- Home indicator -->
+  <rect x="1010" y="338" width="48" height="4" rx="2" fill="#ddd6c9"/>
+
+  <!-- iOS weather screen content -->
+  <!-- Simple sun with rays (clear weather on iOS) -->
+  <circle cx="1032" cy="205" r="16" fill="#d97706" opacity="0.85"/>
+  <!-- Sun rays -->
+  <line x1="1032" y1="181" x2="1032" y2="174" stroke="#d97706" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <line x1="1032" y1="229" x2="1032" y2="236" stroke="#d97706" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <line x1="1008" y1="205" x2="1001" y2="205" stroke="#d97706" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <line x1="1056" y1="205" x2="1063" y2="205" stroke="#d97706" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <line x1="1015" y1="188" x2="1010" y2="183" stroke="#d97706" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <line x1="1049" y1="222" x2="1054" y2="227" stroke="#d97706" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <line x1="1015" y1="222" x2="1010" y2="227" stroke="#d97706" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <line x1="1049" y1="188" x2="1054" y2="183" stroke="#d97706" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- Temp text on iOS screen -->
+  <text x="1032" y="252" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#1c1a17" text-anchor="middle">22°</text>
+  <text x="1032" y="269" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#a8a195" text-anchor="middle" letter-spacing="0.05em">iOS</text>
+
+  <!-- Blue accent dot -->
+  <circle cx="72" cy="140" r="4" fill="#2563eb"/>
+
+  <!-- Subtle vertical rule separating text from motif -->
+  <line x1="600" y1="60" x2="600" y2="440" stroke="#e9e4da" stroke-width="1"/>
+</svg>
