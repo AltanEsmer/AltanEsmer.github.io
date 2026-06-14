@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500">
+  <!-- Background -->
+  <rect width="1200" height="500" fill="#f3efe7"/>
+  <!-- Inner border -->
+  <rect x="12" y="12" width="1176" height="476" fill="none" stroke="#e9e4da" stroke-width="1"/>
+
+  <!-- ── LEFT TEXT BLOCK ── -->
+  <!-- Eyebrow -->
+  <text
+    x="72" y="170"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="13"
+    font-weight="500"
+    letter-spacing="0.15em"
+    fill="#a8a195"
+    text-anchor="start">WEB · CASE STUDY</text>
+
+  <!-- Title -->
+  <text
+    x="70" y="258"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="62"
+    font-weight="normal"
+    fill="#1c1a17"
+    text-anchor="start">gym-progress</text>
+
+  <!-- Decorative rule under title -->
+  <line x1="70" y1="278" x2="420" y2="278" stroke="#ddd6c9" stroke-width="1"/>
+
+  <!-- Tag pills -->
+  <!-- typescript -->
+  <rect x="70" y="300" width="110" height="30" rx="4" fill="#ffffff" stroke="#ddd6c9" stroke-width="1"/>
+  <text x="125" y="320" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#57534e" text-anchor="middle">typescript</text>
+
+  <!-- react -->
+  <rect x="192" y="300" width="72" height="30" rx="4" fill="#ffffff" stroke="#ddd6c9" stroke-width="1"/>
+  <text x="228" y="320" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#57534e" text-anchor="middle">react</text>
+
+  <!-- pwa -->
+  <rect x="276" y="300" width="60" height="30" rx="4" fill="#ffffff" stroke="#ddd6c9" stroke-width="1"/>
+  <text x="306" y="320" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#57534e" text-anchor="middle">pwa</text>
+
+  <!-- ── RIGHT MOTIF ── -->
+  <!-- Card surface -->
+  <rect x="700" y="80" width="432" height="340" rx="6" fill="#ffffff" stroke="#e9e4da" stroke-width="1"/>
+
+  <!-- Chart area label -->
+  <text x="724" y="112" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#a8a195" letter-spacing="0.08em">VOLUME TREND</text>
+
+  <!-- Horizontal grid lines -->
+  <line x1="724" y1="140" x2="1108" y2="140" stroke="#e9e4da" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="724" y1="175" x2="1108" y2="175" stroke="#e9e4da" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="724" y1="210" x2="1108" y2="210" stroke="#e9e4da" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="724" y1="245" x2="1108" y2="245" stroke="#e9e4da" stroke-width="1" stroke-dasharray="4 4"/>
+  <line x1="724" y1="280" x2="1108" y2="280" stroke="#e9e4da" stroke-width="1" stroke-dasharray="4 4"/>
+
+  <!-- Ascending bar chart — 8 bars -->
+  <!-- Bar 1 -->
+  <rect x="740" y="246" width="28" height="34" rx="2" fill="#ddd6c9"/>
+  <!-- Bar 2 -->
+  <rect x="782" y="232" width="28" height="48" rx="2" fill="#ddd6c9"/>
+  <!-- Bar 3 -->
+  <rect x="824" y="220" width="28" height="60" rx="2" fill="#ddd6c9"/>
+  <!-- Bar 4 -->
+  <rect x="866" y="208" width="28" height="72" rx="2" fill="#ddd6c9"/>
+  <!-- Bar 5 (accent blue — peak) -->
+  <rect x="908" y="152" width="28" height="128" rx="2" fill="#2563eb" opacity="0.85"/>
+  <!-- Blue bar top highlight -->
+  <rect x="908" y="152" width="28" height="4" rx="2" fill="#2563eb"/>
+  <!-- Bar 6 -->
+  <rect x="950" y="190" width="28" height="90" rx="2" fill="#ddd6c9"/>
+  <!-- Bar 7 -->
+  <rect x="992" y="176" width="28" height="104" rx="2" fill="#ddd6c9"/>
+  <!-- Bar 8 -->
+  <rect x="1034" y="160" width="28" height="120" rx="2" fill="#ddd6c9"/>
+
+  <!-- Baseline -->
+  <line x1="724" y1="280" x2="1108" y2="280" stroke="#1c1a17" stroke-width="1.5" opacity="0.3"/>
+
+  <!-- Week labels -->
+  <text x="754" y="298" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#a8a195" text-anchor="middle">W1</text>
+  <text x="796" y="298" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#a8a195" text-anchor="middle">W2</text>
+  <text x="838" y="298" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#a8a195" text-anchor="middle">W3</text>
+  <text x="880" y="298" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#a8a195" text-anchor="middle">W4</text>
+  <text x="922" y="298" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#2563eb" text-anchor="middle">W5</text>
+  <text x="964" y="298" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#a8a195" text-anchor="middle">W6</text>
+  <text x="1006" y="298" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#a8a195" text-anchor="middle">W7</text>
+  <text x="1048" y="298" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#a8a195" text-anchor="middle">W8</text>
+
+  <!-- Divider -->
+  <line x1="724" y1="316" x2="1108" y2="316" stroke="#e9e4da" stroke-width="1"/>
+
+  <!-- Barbell / dumbbell icon row -->
+  <g transform="translate(780, 340)">
+    <!-- Left dumbbell head -->
+    <rect x="0" y="-10" width="10" height="20" rx="2" fill="none" stroke="#1c1a17" stroke-width="1.5"/>
+    <rect x="4" y="-14" width="4" height="6" rx="1" fill="none" stroke="#1c1a17" stroke-width="1.5"/>
+    <rect x="4" y="8" width="4" height="6" rx="1" fill="none" stroke="#1c1a17" stroke-width="1.5"/>
+    <!-- Bar -->
+    <line x1="10" y1="0" x2="110" y2="0" stroke="#1c1a17" stroke-width="1.5"/>
+    <!-- Right dumbbell head -->
+    <rect x="110" y="-10" width="10" height="20" rx="2" fill="none" stroke="#1c1a17" stroke-width="1.5"/>
+    <rect x="112" y="-14" width="4" height="6" rx="1" fill="none" stroke="#1c1a17" stroke-width="1.5"/>
+    <rect x="112" y="8" width="4" height="6" rx="1" fill="none" stroke="#1c1a17" stroke-width="1.5"/>
+    <!-- Collar marks -->
+    <line x1="22" y1="-8" x2="22" y2="8" stroke="#ddd6c9" stroke-width="1"/>
+    <line x1="98" y1="-8" x2="98" y2="8" stroke="#ddd6c9" stroke-width="1"/>
+  </g>
+
+  <!-- PR badge next to dumbbell -->
+  <rect x="940" y="326" width="36" height="22" rx="3" fill="#2563eb" opacity="0.1"/>
+  <text x="958" y="341" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#2563eb" text-anchor="middle">PR</text>
+
+  <!-- Decorative vertical rule separating columns -->
+  <line x1="580" y1="60" x2="580" y2="440" stroke="#e9e4da" stroke-width="1"/>
+
+  <!-- Bottom-left faint descriptor -->
+  <text x="72" y="430" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#a8a195" letter-spacing="0.05em">Progressive overload tracking · Personal records · PWA</text>
+</svg>
