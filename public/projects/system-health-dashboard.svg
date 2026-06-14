@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500">
+  <!-- Background -->
+  <rect width="1200" height="500" fill="#f3efe7"/>
+  <!-- Inner border -->
+  <rect x="12" y="12" width="1176" height="476" fill="none" stroke="#e9e4da" stroke-width="1"/>
+
+  <!-- Left: Text block -->
+  <!-- Eyebrow -->
+  <text x="72" y="168" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#a8a195" letter-spacing="0.15em" text-anchor="start" font-weight="400">DESKTOP · CASE STUDY</text>
+
+  <!-- Title -->
+  <text x="72" y="240" font-family="Georgia, 'Times New Roman', serif" font-size="52" fill="#1c1a17" font-weight="400" text-anchor="start">System Health</text>
+  <text x="72" y="300" font-family="Georgia, 'Times New Roman', serif" font-size="52" fill="#1c1a17" font-weight="400" text-anchor="start">Dashboard</text>
+
+  <!-- Tag pills row -->
+  <!-- Tag: c# -->
+  <rect x="72" y="332" width="48" height="26" rx="5" ry="5" fill="#ffffff" stroke="#ddd6c9" stroke-width="1"/>
+  <text x="96" y="349.5" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#57534e" text-anchor="middle">c#</text>
+
+  <!-- Tag: wpf -->
+  <rect x="130" y="332" width="48" height="26" rx="5" ry="5" fill="#ffffff" stroke="#ddd6c9" stroke-width="1"/>
+  <text x="154" y="349.5" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#57534e" text-anchor="middle">wpf</text>
+
+  <!-- Tag: .net -->
+  <rect x="188" y="332" width="52" height="26" rx="5" ry="5" fill="#ffffff" stroke="#ddd6c9" stroke-width="1"/>
+  <text x="214" y="349.5" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#57534e" text-anchor="middle">.net</text>
+
+  <!-- Right: Dashboard motif -->
+  <!-- Outer card shadow layer -->
+  <rect x="680" y="88" width="448" height="324" rx="10" ry="10" fill="#e9e4da"/>
+  <!-- Main dashboard card -->
+  <rect x="676" y="84" width="448" height="324" rx="10" ry="10" fill="#ffffff" stroke="#e9e4da" stroke-width="1"/>
+
+  <!-- Dashboard top bar -->
+  <rect x="676" y="84" width="448" height="40" rx="10" ry="10" fill="#f3efe7"/>
+  <rect x="676" y="104" width="448" height="20" fill="#f3efe7"/>
+  <!-- Top bar dots -->
+  <circle cx="704" cy="104" r="5" fill="#ddd6c9"/>
+  <circle cx="722" cy="104" r="5" fill="#ddd6c9"/>
+  <circle cx="740" cy="104" r="5" fill="#ddd6c9"/>
+  <!-- Top bar title -->
+  <text x="900" y="109" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#a8a195" text-anchor="middle" letter-spacing="0.08em">SYSTEM MONITOR</text>
+
+  <!-- Divider line under top bar -->
+  <line x1="676" y1="124" x2="1124" y2="124" stroke="#e9e4da" stroke-width="1"/>
+
+  <!-- Left panel: sparklines -->
+  <!-- Panel background -->
+  <rect x="692" y="138" width="272" height="254" rx="6" ry="6" fill="#f9f7f4"/>
+
+  <!-- CPU label -->
+  <text x="706" y="160" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#a8a195" letter-spacing="0.08em">CPU</text>
+  <text x="940" y="160" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#2563eb" text-anchor="end">64%</text>
+
+  <!-- CPU sparkline (blue) -->
+  <polyline points="706,186 722,178 738,182 754,170 770,174 786,162 802,166 818,155 834,160 850,152 866,157 882,148 898,153 914,146 930,150 946,143 962,148" fill="none" stroke="#2563eb" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- CPU area fill -->
+  <polygon points="706,186 722,178 738,182 754,170 770,174 786,162 802,166 818,155 834,160 850,152 866,157 882,148 898,153 914,146 930,150 946,143 962,148 962,195 706,195" fill="#2563eb" fill-opacity="0.07"/>
+
+  <!-- MEM label -->
+  <text x="706" y="218" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#a8a195" letter-spacing="0.08em">MEM</text>
+  <text x="940" y="218" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#57534e" text-anchor="end">41%</text>
+
+  <!-- MEM sparkline (neutral) -->
+  <polyline points="706,244 722,242 738,239 754,243 770,240 786,238 802,241 818,237 834,240 850,238 866,242 882,239 898,236 914,240 930,237 946,235 962,238" fill="none" stroke="#ddd6c9" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+
+  <!-- NET label -->
+  <text x="706" y="278" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#a8a195" letter-spacing="0.08em">NET</text>
+  <text x="940" y="278" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#d97706" text-anchor="end">↑ spike</text>
+
+  <!-- NET sparkline with amber spike -->
+  <polyline points="706,298 722,302 738,300 754,303 770,301 786,304 802,302 818,305 834,298 850,288 866,270 882,304 898,302 914,305 930,303 946,306 962,304" fill="none" stroke="#ddd6c9" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- Amber spike highlight -->
+  <polyline points="834,298 850,288 866,270 882,304" fill="none" stroke="#d97706" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- Amber alert tick/dot at spike peak -->
+  <circle cx="866" cy="270" r="4" fill="#d97706"/>
+  <!-- Amber alert vertical tick -->
+  <line x1="866" y1="260" x2="866" y2="315" stroke="#d97706" stroke-width="1" stroke-dasharray="3,3" opacity="0.5"/>
+
+  <!-- Divider between panels -->
+  <line x1="972" y1="138" x2="972" y2="392" stroke="#e9e4da" stroke-width="1"/>
+
+  <!-- Right panel: gauges and status -->
+  <rect x="980" y="138" width="128" height="254" rx="6" ry="6" fill="#f9f7f4"/>
+
+  <!-- Gauge: circular arc for uptime -->
+  <!-- Background arc -->
+  <circle cx="1044" cy="210" r="42" fill="none" stroke="#e9e4da" stroke-width="8" stroke-dasharray="197 264" stroke-dashoffset="-33" stroke-linecap="round"/>
+  <!-- Foreground arc: ~98% green -->
+  <circle cx="1044" cy="210" r="42" fill="none" stroke="#16a34a" stroke-width="8" stroke-dasharray="193 264" stroke-dashoffset="-33" stroke-linecap="round" opacity="0.85"/>
+  <!-- Gauge label -->
+  <text x="1044" y="207" font-family="Georgia, 'Times New Roman', serif" font-size="18" fill="#1c1a17" text-anchor="middle" font-weight="400">98%</text>
+  <text x="1044" y="222" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#a8a195" text-anchor="middle" letter-spacing="0.05em">UPTIME</text>
+
+  <!-- Status items -->
+  <!-- Status: OK -->
+  <circle cx="994" cy="286" r="4" fill="#16a34a"/>
+  <text x="1004" y="290" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#57534e">API  ·  OK</text>
+
+  <circle cx="994" cy="308" r="4" fill="#16a34a"/>
+  <text x="1004" y="312" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#57534e">DB   ·  OK</text>
+
+  <circle cx="994" cy="330" r="4" fill="#d97706"/>
+  <text x="1004" y="334" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#57534e">NET  ·  WARN</text>
+
+  <circle cx="994" cy="352" r="4" fill="#16a34a"/>
+  <text x="1004" y="356" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#57534e">SVC  ·  OK</text>
+
+  <!-- Bottom grid lines (decorative, faint) -->
+  <line x1="692" y1="368" x2="964" y2="368" stroke="#e9e4da" stroke-width="1"/>
+  <line x1="692" y1="378" x2="964" y2="378" stroke="#e9e4da" stroke-width="0.5" opacity="0.5"/>
+
+  <!-- Timestamp / footer text -->
+  <text x="706" y="388" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#a8a195" letter-spacing="0.06em">LAST UPDATED  14:32:07</text>
+  <text x="960" y="388" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#a8a195" text-anchor="end" letter-spacing="0.06em">LIVE</text>
+  <circle cx="966" cy="384" r="3" fill="#16a34a"/>
+
+</svg>
