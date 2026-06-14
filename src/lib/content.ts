@@ -12,6 +12,8 @@ export type Frontmatter = {
   category?: 'Web' | 'Mobile' | 'Desktop' | 'Tools' | string;
   /** Short role descriptor, e.g. "Solo project", "Bachelor project". */
   role?: string;
+  /** Optional preview/cover image path (relative to public/), e.g. "/projects/foo.svg". */
+  cover?: string;
   /** Optional minutes-to-read label for blog posts, e.g. "4 min read". */
   readingTime?: string;
 };

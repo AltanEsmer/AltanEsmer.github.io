@@ -128,14 +128,6 @@ export default function Footer() {
               >
                 GitHub
               </a>
-              <a
-                href="https://www.linkedin.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="footer-link"
-              >
-                LinkedIn
-              </a>
             </div>
           </div>
         </div>

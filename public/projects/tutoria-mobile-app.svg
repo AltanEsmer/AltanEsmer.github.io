@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500">
+  <!-- Background -->
+  <rect width="1200" height="500" fill="#f3efe7"/>
+  <!-- Inner border -->
+  <rect x="12" y="12" width="1176" height="476" fill="none" stroke="#e9e4da" stroke-width="1"/>
+
+  <!-- LEFT TEXT BLOCK -->
+  <!-- Eyebrow -->
+  <text x="72" y="148" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#a8a195" letter-spacing="0.15em" font-weight="500">MOBILE · CASE STUDY</text>
+
+  <!-- Title -->
+  <text x="68" y="228" font-family="Georgia, 'Times New Roman', serif" font-size="62" fill="#1c1a17" font-weight="400">Tutoria</text>
+
+  <!-- Subtitle -->
+  <text x="72" y="272" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#57534e">Phonics for children with dyslexia</text>
+
+  <!-- Divider line -->
+  <line x1="72" y1="308" x2="320" y2="308" stroke="#ddd6c9" stroke-width="1"/>
+
+  <!-- Tag pills -->
+  <!-- react-native -->
+  <rect x="72" y="328" width="108" height="30" rx="6" ry="6" fill="#ffffff" stroke="#ddd6c9" stroke-width="1"/>
+  <text x="126" y="348" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#57534e" text-anchor="middle">react-native</text>
+
+  <!-- typescript -->
+  <rect x="190" y="328" width="96" height="30" rx="6" ry="6" fill="#ffffff" stroke="#ddd6c9" stroke-width="1"/>
+  <text x="238" y="348" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#57534e" text-anchor="middle">typescript</text>
+
+  <!-- a11y -->
+  <rect x="296" y="328" width="58" height="30" rx="6" ry="6" fill="#ffffff" stroke="#ddd6c9" stroke-width="1"/>
+  <text x="325" y="348" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#57534e" text-anchor="middle">a11y</text>
+
+  <!-- Subtle accent line under title -->
+  <rect x="72" y="236" width="48" height="3" rx="1.5" fill="#2563eb" opacity="0.7"/>
+
+  <!-- RIGHT MOTIF -->
+  <!-- Phone outline -->
+  <rect x="740" y="108" width="160" height="284" rx="18" ry="18" fill="#ffffff" stroke="#ddd6c9" stroke-width="1.5"/>
+  <!-- Phone top notch -->
+  <rect x="790" y="120" width="60" height="8" rx="4" fill="#e9e4da"/>
+  <!-- Phone screen area -->
+  <rect x="754" y="140" width="132" height="210" rx="4" fill="#f3efe7"/>
+  <!-- Phone home bar -->
+  <rect x="800" y="364" width="40" height="4" rx="2" fill="#ddd6c9"/>
+
+  <!-- Letter cards on phone screen -->
+  <!-- Card C -->
+  <rect x="762" y="158" width="36" height="42" rx="6" fill="#ffffff" stroke="#e9e4da" stroke-width="1"/>
+  <text x="780" y="188" font-family="Georgia, 'Times New Roman', serif" font-size="26" fill="#1c1a17" text-anchor="middle">C</text>
+
+  <!-- Card A -->
+  <rect x="802" y="158" width="36" height="42" rx="6" fill="#ffffff" stroke="#e9e4da" stroke-width="1"/>
+  <text x="820" y="188" font-family="Georgia, 'Times New Roman', serif" font-size="26" fill="#d97706" text-anchor="middle">A</text>
+
+  <!-- Card T -->
+  <rect x="842" y="158" width="36" height="42" rx="6" fill="#ffffff" stroke="#e9e4da" stroke-width="1"/>
+  <text x="860" y="188" font-family="Georgia, 'Times New Roman', serif" font-size="26" fill="#1c1a17" text-anchor="middle">T</text>
+
+  <!-- Sound wave / audio lines on screen -->
+  <line x1="774" y1="224" x2="774" y2="238" stroke="#ddd6c9" stroke-width="2" stroke-linecap="round"/>
+  <line x1="782" y1="218" x2="782" y2="244" stroke="#2563eb" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <line x1="790" y1="222" x2="790" y2="240" stroke="#ddd6c9" stroke-width="2" stroke-linecap="round"/>
+  <line x1="798" y1="214" x2="798" y2="248" stroke="#ddd6c9" stroke-width="2" stroke-linecap="round"/>
+  <line x1="806" y1="220" x2="806" y2="242" stroke="#2563eb" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <line x1="814" y1="224" x2="814" y2="238" stroke="#ddd6c9" stroke-width="2" stroke-linecap="round"/>
+  <line x1="822" y1="218" x2="822" y2="244" stroke="#ddd6c9" stroke-width="2" stroke-linecap="round"/>
+  <line x1="830" y1="222" x2="830" y2="240" stroke="#2563eb" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <line x1="838" y1="226" x2="838" y2="236" stroke="#ddd6c9" stroke-width="2" stroke-linecap="round"/>
+  <line x1="846" y1="220" x2="846" y2="242" stroke="#ddd6c9" stroke-width="2" stroke-linecap="round"/>
+  <line x1="854" y1="224" x2="854" y2="238" stroke="#ddd6c9" stroke-width="2" stroke-linecap="round"/>
+  <line x1="862" y1="218" x2="862" y2="244" stroke="#2563eb" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <line x1="870" y1="226" x2="870" y2="236" stroke="#ddd6c9" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Progress bar on screen -->
+  <rect x="762" y="262" width="116" height="6" rx="3" fill="#e9e4da"/>
+  <rect x="762" y="262" width="68" height="6" rx="3" fill="#d97706"/>
+
+  <!-- Small lesson label on screen -->
+  <text x="820" y="286" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#a8a195" text-anchor="middle">Lesson 4 of 12</text>
+
+  <!-- Physical letter cards in front/beside phone -->
+  <!-- Card 1 (left of phone) -->
+  <rect x="648" y="182" width="76" height="88" rx="10" fill="#ffffff" stroke="#e9e4da" stroke-width="1.5"/>
+  <text x="686" y="240" font-family="Georgia, 'Times New Roman', serif" font-size="46" fill="#1c1a17" text-anchor="middle">B</text>
+
+  <!-- Card 2 (right of phone) -->
+  <rect x="920" y="182" width="76" height="88" rx="10" fill="#ffffff" stroke="#e9e4da" stroke-width="1.5"/>
+  <text x="958" y="240" font-family="Georgia, 'Times New Roman', serif" font-size="46" fill="#d97706" text-anchor="middle">A</text>
+
+  <!-- Card 3 (below/overlapping) -->
+  <rect x="784" y="300" width="76" height="88" rx="10" fill="#ffffff" stroke="#ddd6c9" stroke-width="1.5" opacity="0.85"/>
+  <text x="822" y="358" font-family="Georgia, 'Times New Roman', serif" font-size="46" fill="#1c1a17" text-anchor="middle" opacity="0.85">T</text>
+
+  <!-- Connecting dots between physical and digital -->
+  <circle cx="726" cy="230" r="3" fill="#ddd6c9"/>
+  <circle cx="736" cy="230" r="3" fill="#ddd6c9"/>
+  <circle cx="746" cy="230" r="3" fill="#2563eb" opacity="0.5"/>
+
+  <circle cx="910" cy="230" r="3" fill="#ddd6c9"/>
+  <circle cx="920" cy="230" r="3" fill="#ddd6c9"/>
+  <circle cx="900" cy="230" r="3" fill="#2563eb" opacity="0.5"/>
+
+  <!-- Small decorative dots top right -->
+  <circle cx="1080" cy="80" r="3" fill="#ddd6c9"/>
+  <circle cx="1096" cy="80" r="3" fill="#ddd6c9"/>
+  <circle cx="1112" cy="80" r="3" fill="#ddd6c9"/>
+  <circle cx="1128" cy="80" r="3" fill="#ddd6c9"/>
+  <circle cx="1080" cy="96" r="3" fill="#ddd6c9"/>
+  <circle cx="1096" cy="96" r="3" fill="#ddd6c9"/>
+  <circle cx="1112" cy="96" r="3" fill="#ddd6c9"/>
+  <circle cx="1128" cy="96" r="3" fill="#ddd6c9"/>
+  <circle cx="1080" cy="112" r="3" fill="#ddd6c9"/>
+  <circle cx="1096" cy="112" r="3" fill="#ddd6c9"/>
+  <circle cx="1112" cy="112" r="3" fill="#ddd6c9"/>
+  <circle cx="1128" cy="112" r="3" fill="#ddd6c9"/>
+
+  <!-- Faint vertical rule separating text from motif -->
+  <line x1="590" y1="72" x2="590" y2="428" stroke="#e9e4da" stroke-width="1" stroke-dasharray="4 6"/>
+</svg>

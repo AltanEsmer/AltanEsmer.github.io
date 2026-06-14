@@ -47,6 +47,20 @@ export default function ContactForm() {
       setErrors(newErrors);
       return;
     }
+
+    const bodyLines = [
+      `Name: ${form.name.trim()}`,
+      `Email: ${form.email.trim()}`,
+      ...(form.budget ? [`Budget: ${form.budget}`] : []),
+      '',
+      form.message.trim(),
+    ];
+    const mailto =
+      `mailto:esmeraltan@gmail.com` +
+      `?subject=${encodeURIComponent(`Portfolio enquiry from ${form.name.trim()}`)}` +
+      `&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+    window.location.href = mailto;
+
     setSent(true);
   };
 
@@ -148,7 +162,9 @@ export default function ContactForm() {
                   margin: '10px 0 0',
                 }}
               >
-                Your message is on its way. I&apos;ll get back to you within 24 hours.
+                Your email app should have opened with the message ready to send.
+                If it didn&apos;t, email me directly at esmeraltan@gmail.com — I reply
+                within 24 hours.
               </p>
               <button
                 type="button"
@@ -332,15 +348,6 @@ export default function ContactForm() {
                   rel="noopener noreferrer"
                 >
                   GitHub
-                </a>
-                <a
-                  href="https://www.linkedin.com/"
-                  className="link-blue"
-                  style={{ fontWeight: 500 }}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  LinkedIn
                 </a>
               </span>
             </div>

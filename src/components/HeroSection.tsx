@@ -109,24 +109,18 @@ export default function HeroSection() {
                 }}
               >
                 {/* Avatar */}
-                <div
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/altan-esmer.jpg"
+                  alt="Altan Esmer"
                   style={{
                     width: 46,
                     height: 46,
-                    background: 'var(--blue)',
-                    color: '#fff',
                     borderRadius: 13,
-                    fontFamily: 'var(--font-serif)',
-                    fontWeight: 600,
-                    fontSize: 19,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
+                    objectFit: 'cover',
                     flexShrink: 0,
                   }}
-                >
-                  AE
-                </div>
+                />
                 <div>
                   <div
                     style={{
