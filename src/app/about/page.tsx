@@ -10,9 +10,9 @@ export const metadata = {
 
 const TIMELINE = [
   {
-    year: '2025',
-    title: 'Building & writing',
-    desc: 'Shipping gym-progress and publishing project case studies and notes.',
+    year: '2023',
+    title: 'Started university',
+    desc: 'Began the B.Sc. in Computer Science at the University of Southern Denmark.',
   },
   {
     year: '2024',
@@ -20,14 +20,14 @@ const TIMELINE = [
     desc: 'Built the System Health Dashboard (C# / WPF) and KMP Weather with Kotlin Multiplatform.',
   },
   {
-    year: '2023',
-    title: 'B.Sc. Computer Science',
-    desc: 'Graduated from the University of Southern Denmark. Bachelor project: Tutoria, a phonics app for children with dyslexia.',
+    year: '2025',
+    title: 'Building & writing',
+    desc: 'Shipping gym-progress and publishing project case studies and notes.',
   },
   {
-    year: '2019',
-    title: 'Started university',
-    desc: 'Began the B.Sc. in Computer Science at the University of Southern Denmark.',
+    year: '2026',
+    title: 'B.Sc. Computer Science',
+    desc: 'Graduated from the University of Southern Denmark. Bachelor project: Tutoria, a phonics app for children with dyslexia.',
   },
 ];
 
