@@ -333,15 +333,6 @@ export default function ContactForm() {
                 >
                   GitHub
                 </a>
-                <a
-                  href="https://www.linkedin.com/"
-                  className="link-blue"
-                  style={{ fontWeight: 500 }}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  LinkedIn
-                </a>
               </span>
             </div>
           </div>
