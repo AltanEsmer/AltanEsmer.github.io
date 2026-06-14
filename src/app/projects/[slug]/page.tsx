@@ -133,26 +133,42 @@ export default async function ProjectPage({
         )}
       </Reveal>
 
-      {/* Preview placeholder */}
+      {/* Preview cover (falls back to a placeholder when no cover is set) */}
       <Reveal delay={0.1}>
-        <div
-          style={{
-            margin: '32px 0',
-            height: 300,
-            borderRadius: 14,
-            background: 'var(--placeholder)',
-            border: '1px solid var(--border)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: 'var(--faint)',
-            fontSize: 12,
-            letterSpacing: '0.1em',
-            textTransform: 'uppercase',
-          }}
-        >
-          Project preview
-        </div>
+        {item.frontmatter.cover ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={item.frontmatter.cover}
+            alt={`${item.frontmatter.title} preview`}
+            style={{
+              display: 'block',
+              width: '100%',
+              height: 'auto',
+              margin: '32px 0',
+              borderRadius: 14,
+              border: '1px solid var(--border)',
+            }}
+          />
+        ) : (
+          <div
+            style={{
+              margin: '32px 0',
+              height: 300,
+              borderRadius: 14,
+              background: 'var(--placeholder)',
+              border: '1px solid var(--border)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: 'var(--faint)',
+              fontSize: 12,
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+            }}
+          >
+            Project preview
+          </div>
+        )}
       </Reveal>
 
       {/* MDX body */}
