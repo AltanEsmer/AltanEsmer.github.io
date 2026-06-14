@@ -170,7 +170,7 @@ export default function AboutPage() {
                 <span
                   style={{
                     position: 'absolute',
-                    left: -7,
+                    left: -11,
                     top: 4,
                     width: 12,
                     height: 12,
