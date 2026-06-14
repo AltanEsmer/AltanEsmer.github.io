@@ -113,49 +113,28 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Right column — portrait placeholder */}
+          {/* Right column — portrait */}
           <div
             style={{
               flex: '0 1 280px',
               minWidth: 240,
               aspectRatio: '4/5',
               borderRadius: 16,
-              background: 'var(--placeholder)',
               border: '1px solid var(--border)',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: 12,
+              overflow: 'hidden',
             }}
           >
-            <div
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/altan-esmer.jpg"
+              alt="Altan Esmer"
               style={{
-                width: 84,
-                height: 84,
-                borderRadius: '50%',
-                background: 'var(--blue)',
-                color: '#fff',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontFamily: 'var(--font-serif)',
-                fontWeight: 600,
-                fontSize: 34,
+                display: 'block',
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
               }}
-            >
-              AE
-            </div>
-            <span
-              style={{
-                fontSize: 12,
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase',
-                color: 'var(--faint)',
-              }}
-            >
-              Portrait
-            </span>
+            />
           </div>
         </div>
       </Reveal>
