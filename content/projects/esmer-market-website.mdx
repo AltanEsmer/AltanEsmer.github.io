@@ -1,0 +1,35 @@
+---
+title: 'Esmer Market'
+description: 'The official site for my family grocery store in Northern Cyprus — Turkish-first, statically exported, with client-side Firebase for reviews and campaigns.'
+date: '2026-06-10'
+tags: ['nextjs', 'react', 'typescript', 'firebase', 'i18n']
+featured: false
+category: Web
+role: 'Solo project'
+cover: '/projects/esmer-market-website.svg'
+---
+
+Esmer Market is my family's local grocery store in Yeni Boğaziçi, Gazimağusa,
+Northern Cyprus. I built the store its own website so regulars can check
+campaigns, leave reviews, and find us without going through a social feed.
+
+The site covers the essentials: home, about, contact, a gallery, a store map
+for the location, customer reviews, and the usual privacy and terms pages, plus
+an admin login for managing content. It reads Turkish-first, with English as the
+secondary language.
+
+## Stack
+
+- **Next.js 15 (App Router, `output: 'export'`)** + **React 19** + **TypeScript**
+- **Tailwind CSS v4** with **shadcn/ui** (new-york style)
+- **Firebase** — Firestore + Auth, client-side only, for reviews and campaigns
+- **i18next / react-i18next** — Turkish default, English secondary
+- **Framer Motion** for transitions; deployed static on **Netlify**
+
+## Interesting decisions
+
+The whole site ships as a static export, yet it's still dynamic where it counts:
+Firebase runs entirely client-side, so reviews and campaigns update live without
+any server to host. The one non-static piece is the contact form — a Netlify
+serverless function using nodemailer and reCAPTCHA v3, which keeps spam out and
+email credentials off the client without standing up a backend.
