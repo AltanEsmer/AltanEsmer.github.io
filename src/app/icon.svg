@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Ink rounded square, matching the cover-art palette -->
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="#1c1a17"/>
+  <!-- AE monogram in the covers' serif face -->
+  <text x="32" y="43" font-family="Georgia, 'Times New Roman', serif" font-size="31" font-weight="bold" fill="#f3efe7" text-anchor="middle" letter-spacing="-1">AE</text>
+  <!-- Blue accent rule, echoing the thin rule under each cover title -->
+  <rect x="23" y="49" width="18" height="3" rx="1.5" fill="#2563eb"/>
+</svg>
