@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500">
+  <!-- Background -->
+  <rect width="1200" height="500" fill="#f3efe7"/>
+  <!-- Inner border -->
+  <rect x="12" y="12" width="1176" height="476" fill="none" stroke="#e9e4da" stroke-width="1"/>
+
+  <!-- Accent dot near eyebrow -->
+  <circle cx="72" cy="150" r="5" fill="#2563eb"/>
+
+  <!-- Left text block -->
+  <!-- Eyebrow -->
+  <text x="72" y="178" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#a8a195" letter-spacing="0.15em" text-anchor="start">TOOLS · CASE STUDY</text>
+
+  <!-- Title -->
+  <text x="72" y="250" font-family="Georgia, 'Times New Roman', serif" font-size="56" fill="#1c1a17" text-anchor="start" font-weight="normal">CS2 Arbitrage</text>
+  <text x="72" y="318" font-family="Georgia, 'Times New Roman', serif" font-size="56" fill="#1c1a17" text-anchor="start" font-weight="normal">Monitor</text>
+
+  <!-- Thin rule under title -->
+  <line x1="72" y1="342" x2="308" y2="342" stroke="#e9e4da" stroke-width="1"/>
+
+  <!-- Tag pills -->
+  <rect x="72" y="356" width="82" height="30" rx="4" ry="4" fill="#ffffff" stroke="#ddd6c9" stroke-width="1"/>
+  <text x="113" y="376" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#57534e" text-anchor="middle">python</text>
+
+  <rect x="164" y="356" width="92" height="30" rx="4" ry="4" fill="#ffffff" stroke="#ddd6c9" stroke-width="1"/>
+  <text x="210" y="376" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#57534e" text-anchor="middle">pipeline</text>
+
+  <rect x="266" y="356" width="74" height="30" rx="4" ry="4" fill="#ffffff" stroke="#ddd6c9" stroke-width="1"/>
+  <text x="303" y="376" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#57534e" text-anchor="middle">alerts</text>
+
+  <!-- Vertical divider -->
+  <line x1="600" y1="60" x2="600" y2="440" stroke="#e9e4da" stroke-width="1"/>
+
+  <!-- Right side motif: two marketplace price cards + spread + Discord alert -->
+
+  <!-- Marketplace card A -->
+  <rect x="648" y="78" width="208" height="116" rx="10" ry="10" fill="#ffffff" stroke="#ddd6c9" stroke-width="1.5"/>
+  <text x="668" y="104" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#a8a195" letter-spacing="0.1em">MARKET A</text>
+  <rect x="668" y="116" width="30" height="30" rx="5" ry="5" fill="#f9f7f4" stroke="#e9e4da" stroke-width="1"/>
+  <line x1="674" y1="140" x2="692" y2="122" stroke="#ddd6c9" stroke-width="1.5"/>
+  <rect x="708" y="120" width="118" height="9" rx="3" fill="#e9e4da"/>
+  <rect x="708" y="136" width="72" height="7" rx="3" fill="#e9e4da"/>
+  <text x="668" y="182" font-family="Georgia, 'Times New Roman', serif" font-size="24" fill="#1c1a17">$142.00</text>
+  <text x="838" y="182" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#a8a195" text-anchor="end">sold 12:04</text>
+
+  <!-- Marketplace card B -->
+  <rect x="908" y="78" width="208" height="116" rx="10" ry="10" fill="#ffffff" stroke="#ddd6c9" stroke-width="1.5"/>
+  <text x="928" y="104" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#a8a195" letter-spacing="0.1em">MARKET B</text>
+  <rect x="928" y="116" width="30" height="30" rx="5" ry="5" fill="#f9f7f4" stroke="#e9e4da" stroke-width="1"/>
+  <line x1="934" y1="140" x2="952" y2="122" stroke="#ddd6c9" stroke-width="1.5"/>
+  <rect x="968" y="120" width="118" height="9" rx="3" fill="#e9e4da"/>
+  <rect x="968" y="136" width="72" height="7" rx="3" fill="#e9e4da"/>
+  <text x="928" y="182" font-family="Georgia, 'Times New Roman', serif" font-size="24" fill="#1c1a17">$168.50</text>
+  <text x="1098" y="182" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#a8a195" text-anchor="end">sold 12:31</text>
+
+  <!-- Spread bracket connecting the two prices -->
+  <line x1="752" y1="194" x2="752" y2="216" stroke="#ddd6c9" stroke-width="1"/>
+  <line x1="1012" y1="194" x2="1012" y2="216" stroke="#ddd6c9" stroke-width="1"/>
+  <line x1="752" y1="216" x2="1012" y2="216" stroke="#ddd6c9" stroke-width="1"/>
+  <!-- Spread pill (green = positive) -->
+  <rect x="812" y="201" width="140" height="30" rx="15" ry="15" fill="#16a34a" fill-opacity="0.12" stroke="#16a34a" stroke-opacity="0.5" stroke-width="1"/>
+  <path d="M828 223 L834 213 L840 223 Z" fill="#16a34a"/>
+  <text x="892" y="221" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#16a34a" text-anchor="middle">+$26.50 · 18%</text>
+
+  <!-- Discord alert card -->
+  <rect x="648" y="258" width="468" height="170" rx="10" ry="10" fill="#ffffff" stroke="#ddd6c9" stroke-width="1.5"/>
+
+  <!-- Header row -->
+  <circle cx="684" cy="290" r="14" fill="#2563eb" fill-opacity="0.15" stroke="#2563eb" stroke-opacity="0.5" stroke-width="1"/>
+  <text x="684" y="294" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#2563eb" text-anchor="middle">A</text>
+  <text x="710" y="286" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#1c1a17">Arbitrage Monitor</text>
+  <rect x="858" y="277" width="36" height="16" rx="3" ry="3" fill="#2563eb" fill-opacity="0.15"/>
+  <text x="876" y="289" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#2563eb" text-anchor="middle">BOT</text>
+  <text x="908" y="289" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#a8a195">Today at 14:32</text>
+
+  <!-- Embed block -->
+  <rect x="672" y="306" width="430" height="106" rx="6" ry="6" fill="#f9f7f4" stroke="#e9e4da" stroke-width="1"/>
+  <!-- Embed accent bar -->
+  <rect x="672" y="310" width="6" height="98" fill="#2563eb"/>
+
+  <!-- Embed title: icon + item name placeholder -->
+  <rect x="694" y="322" width="20" height="20" rx="4" ry="4" fill="#ffffff" stroke="#ddd6c9" stroke-width="1"/>
+  <line x1="698" y1="338" x2="710" y2="326" stroke="#ddd6c9" stroke-width="1.5"/>
+  <rect x="724" y="326" width="150" height="9" rx="3" fill="#e9e4da"/>
+  <rect x="1000" y="323" width="88" height="18" rx="9" ry="9" fill="#16a34a" fill-opacity="0.12"/>
+  <text x="1044" y="336" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="500" fill="#16a34a" text-anchor="middle">+18% spread</text>
+
+  <!-- Embed fields -->
+  <text x="694" y="368" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#a8a195" letter-spacing="0.06em">MARKET A</text>
+  <text x="694" y="386" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#57534e">$142.00</text>
+
+  <text x="830" y="368" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#a8a195" letter-spacing="0.06em">MARKET B</text>
+  <text x="830" y="386" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#57534e">$168.50</text>
+
+  <text x="966" y="368" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#16a34a" letter-spacing="0.06em">SPREAD</text>
+  <text x="966" y="386" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="500" fill="#16a34a">+$26.50</text>
+
+  <!-- Embed footer link -->
+  <text x="694" y="404" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#2563eb">View listings →</text>
+
+  <!-- Decorative subtle line bottom left -->
+  <line x1="72" y1="420" x2="420" y2="420" stroke="#e9e4da" stroke-width="1"/>
+</svg>

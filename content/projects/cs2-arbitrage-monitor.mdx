@@ -1,0 +1,44 @@
+---
+title: 'CS2 Arbitrage Monitor'
+description: 'A Python data pipeline that tracks completed-sale prices for CS2 skins across marketplaces and alerts on profitable spreads.'
+date: '2026-05-20'
+tags: ['python', 'data-pipeline', 'scraping', 'automation']
+featured: false
+category: Tools
+role: 'Solo project'
+cover: '/projects/cs2-arbitrage-monitor.svg'
+---
+
+Skin prices for the same CS2 item can differ noticeably between Steam and other
+skin marketplaces, but spotting the gap by hand means watching several tabs at
+once. I built a data pipeline that watches for me and pings a Discord channel
+when a real arbitrage window opens.
+
+The system runs in four stages. **Connectors** pull data per marketplace — a mix
+of scrapers and official API feeds. A **sales price engine** normalizes item
+names, deduplicates records, and stores historical prices. A **matcher** applies
+configurable spread rules to find items priced apart across venues. **Alerts**
+post an embed card to Discord with the item, per-marketplace sale prices and
+timestamps, the absolute and percentage spread, and links to each listing.
+
+## Stack
+
+- **Python** — connectors, the price engine, and the matcher
+- **Per-marketplace connectors** — scraping for some venues, official APIs for others
+- **Storage layer with migrations** — historical completed-sale prices
+- **Declarative rule files** in `src/rules/` — minimum spread, item filters, cooldowns
+- **Discord webhook** — embed-card alerts to a single channel
+
+## Interesting decisions
+
+I track **completed-sale prices** — realized transactions — rather than
+listing or asking prices. What a seller hopes to get is not what an item is
+worth; only closed sales give an honest arbitrage signal.
+
+Detection logic lives in **declarative rule files**, not code. Spread
+thresholds, item filters, and cooldowns are all config, so I can tune what
+counts as an opportunity without editing the pipeline.
+
+The whole thing is compliance-first: it respects each platform's terms of
+service, robots.txt, and rate limits, collects only public completed-sale data,
+and performs no automated purchasing or trading.

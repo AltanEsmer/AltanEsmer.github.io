@@ -1,0 +1,38 @@
+---
+title: 'Event Management System'
+description: 'A multi-tenant app for hotel staff to schedule and track events across rooms and venues, backed by one PostgreSQL database.'
+date: '2026-06-15'
+tags: ['react', 'node', 'postgres', 'prisma', 'auth0']
+featured: false
+category: Web
+role: 'Solo project'
+cover: '/projects/event-management-system.svg'
+---
+
+Hotel staff were juggling weddings, conferences, and private parties across
+rooms and venues, with double-bookings a constant risk. I built a single app
+that puts every event on one shared calendar and keeps one hotel's data walled
+off from the next.
+
+The frontend is a React calendar with month, week, and day views, color-coded by
+category, plus revenue, occupancy, and peak-time charts. Behind it, an Express
+API talks to PostgreSQL through Prisma, with Auth0 handling sign-in and Winston
+recording what happened.
+
+## Stack
+
+- **React 18 + React Router** — SPA with React Big Calendar and Recharts
+- **Node.js / Express + Prisma** — REST API over one PostgreSQL database
+- **Auth0** — authentication with JWT validation on every request
+- **Helmet, CORS, rate limiting, input sanitization** — baseline hardening
+- **Electron + PM2 / Nginx** — desktop wrapper and production process management
+
+## Interesting decisions
+
+**Multi-tenant with three-tier RBAC.** Every row is scoped to a hotel, and roles
+run Super Admin, Hotel Admin, and User. A hotel admin only ever queries their own
+hotel's events — isolation lives in the data layer, not the UI.
+
+**Soft-delete over hard-delete.** Cancelled events are flagged, never dropped, so
+there is always an audit trail. The same booking data feeds automatic conflict
+detection, which flags two events fighting over the same room before they save.

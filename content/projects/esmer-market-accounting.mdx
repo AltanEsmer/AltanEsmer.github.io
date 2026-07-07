@@ -1,0 +1,39 @@
+---
+title: 'Esmer Market Accounting'
+description: 'A unified inventory, invoicing, and accounting system for a family Turkish grocery, shipped as both a web app and a Windows desktop app.'
+date: '2026-05-15'
+tags: ['react', 'node', 'electron', 'sql-server']
+featured: false
+category: Desktop
+role: 'Solo project'
+cover: '/projects/esmer-market-accounting.svg'
+---
+
+Our family grocery kept stock counts, invoices, and the books in separate
+places that never reconciled on their own. Esmer Market Accounting folds all of
+it into one Turkish-language system a non-technical shop can run at the counter.
+
+Four modules. Inventory tracks products, SKUs, categories, suppliers, and stock
+transactions. Invoicing takes manual entry plus PDF and image uploads, running
+OCR extraction into a status-tracked document archive. Accounting
+does multi-currency bookkeeping (TRY/USD/EUR with exchange rates), VAT
+reporting, P&L, balance sheet, and cash flow. Analytics rolls it up into
+dashboard KPIs and revenue and profit trends. Access is split across admin,
+accountant, and cashier roles.
+
+## Stack
+
+- **React 18 + React Router** — Tailwind, Bootstrap, React Query, i18next (Turkish)
+- **Node.js + Express** — JWT auth, Joi validation, Winston logging, Multer uploads
+- **Microsoft SQL Server** — raw `mssql` driver over a Turkish schema (STOK, FIS, CARI)
+- **Electron + electron-builder** — packaged as an NSIS installer and portable build
+
+## Interesting decisions
+
+- I dropped the ORM and wrote raw SQL over the `mssql` driver. The schema is
+  Turkish-named (STOK for products, FIS/FIS_DETAY for invoices, CARI for
+  customers), and direct queries kept full control over how SQL Server was hit.
+- One React/Express codebase ships two ways: a web app, and a packaged Windows
+  desktop app so the shop can install and run it locally on the counter machine.
+- Multi-currency accounting with exchange rates, plus OCR on uploaded
+  invoices so paper documents land straight in the archive.
